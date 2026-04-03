@@ -17,19 +17,19 @@ const { items, fondo = "primario" } = Astro.props;
 if (!items || items.length === 0) return;
 
 const bgClasses = {
-  "primario": "bg-blue-600 text-white",
-  "oscuro": "bg-gray-900 text-white",
-  "claro": "bg-gray-100 text-gray-900",
+  "primario": "bg-[var(--primary)] text-[var(--on-primary)]",
+  "oscuro": "bg-[var(--tertiary)] text-white",
+  "claro": "bg-[var(--surface-container-low)] text-[var(--on-surface)]",
 };
 
-const textCls = fondo === "claro" ? "text-blue-600" : "text-white";
-const labelCls = fondo === "claro" ? "text-gray-600" : "text-gray-300";
-const iconBg = fondo === "claro" ? "bg-white" : "bg-white/10";
+const textCls = fondo === "claro" ? "text-[var(--primary)]" : "text-white";
+const labelCls = fondo === "claro" ? "text-[var(--on-surface-variant)]" : "text-white/70";
+const iconBg = fondo === "claro" ? "bg-white shadow-sm" : "bg-white/10";
 ---
 
-<section class={`py-20 md:py-28 w-full ${bgClasses[fondo]}`}>
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center divide-x-0 md:divide-x divide-white/20">
+<section class={`py-24 md:py-32 w-full ${bgClasses[fondo]}`}>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center">
       
       {items.map(item => (
         <div class="flex flex-col items-center justify-center space-y-2">

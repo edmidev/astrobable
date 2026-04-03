@@ -14,24 +14,28 @@ const {
 } = Astro.props;
 
 const bgClasses = {
-  primario: "bg-blue-600",
-  gradiente: "bg-gradient-to-r from-blue-600 to-indigo-700",
-  oscuro: "bg-gray-900",
+  primario: "bg-[var(--primary)]",
+  gradiente: "bg-[var(--gradient-hero)]",
+  oscuro: "bg-[var(--tertiary)]",
 };
 
-const textClass = fondo === "oscuro" ? "text-gray-300" : "text-blue-100";
+const textClass = fondo === "oscuro" ? "text-white/70" : "text-white/80";
 ---
 
-<section class={`py-24 md:py-32 ${bgClasses[fondo]} text-white`}>
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="max-w-3xl mx-auto text-center space-y-8">
+<section class={`py-24 md:py-40 ${bgClasses[fondo]} text-white relative overflow-hidden`}>
+  <!-- Elementos decorativos de fondo opcionales -->
+  <div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+  <div class="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-96 h-96 bg-black/10 rounded-full blur-3xl"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="max-w-4xl mx-auto text-center space-y-10">
       
-      <h2 class="text-3xl md:text-5xl font-bold leading-tight">
+      <h2 class="text-4xl md:text-6xl font-extrabold leading-[1.1] tracking-[-0.03em]">
         {titulo}
       </h2>
       
       {subtitulo && (
-        <p class={`text-lg md:text-xl leading-relaxed ${textClass}`}>
+        <p class={`max-w-2xl mx-auto text-xl md:text-2xl leading-relaxed font-medium ${textClass}`}>
           {subtitulo}
         </p>
       )}
@@ -39,12 +43,11 @@ const textClass = fondo === "oscuro" ? "text-gray-300" : "text-blue-100";
       <div class="pt-4">
         <a 
           href={cta.enlace}
-          class="inline-block bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-50 transition-colors shadow-lg hover:shadow-xl focus:ring-4 focus:ring-white/20"
+          class="inline-block bg-white text-[var(--primary)] px-10 py-5 rounded-2xl text-xl font-bold hover:scale-105 active:scale-95 transition-all shadow-2xl hover:shadow-[var(--shadow-float)]"
         >
           {cta.texto}
         </a>
       </div>
-      
     </div>
   </div>
 </section>

@@ -10,30 +10,30 @@ const { titulo, logos, estilo = "estatico" } = Astro.props;
 if (!logos || logos.length === 0) return;
 ---
 
-<section class="py-12 bg-white border-y border-gray-100 overflow-hidden">
+<section class="py-16 md:py-24 bg-[var(--surface)] overflow-hidden">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
     {titulo && (
-      <div class="text-center mb-10">
-        <h3 class="text-sm font-bold tracking-widest uppercase text-gray-400">{titulo}</h3>
+      <div class="text-center mb-12">
+        <h3 class="text-xs md:text-sm font-black tracking-[0.2em] uppercase text-[var(--on-surface-variant)] opacity-40">{titulo}</h3>
       </div>
     )}
 
     {estilo === "estatico" ? (
-      <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60">
+      <div class="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-40 grayscale hover:opacity-80 transition-all duration-700">
         {logos.map(logo => (
-          <img src={logo.imagen} alt={logo.alt} class="h-8 md:h-12 max-w-[150px] object-contain grayscale hover:grayscale-0 transition-all duration-300" loading="lazy" />
+          <img src={logo.imagen} alt={logo.alt} class="h-8 md:h-10 w-auto max-w-[140px] object-contain hover:grayscale-0 transition-all" loading="lazy" />
         ))}
       </div>
     ) : (
-      <div class="relative w-full flex align-center mt-8">
-         <div class="marquee-scroller flex min-w-full space-x-16 opacity-60 px-8">
+      <div class="relative w-full flex align-center mt-4">
+         <div class="marquee-scroller flex min-w-full space-x-24 opacity-30 px-8 grayscale hover:opacity-70 transition-all duration-700">
            {logos.map(logo => (
-             <img src={logo.imagen} alt={logo.alt} class="h-8 md:h-12 w-auto max-w-[150px] object-contain grayscale hover:grayscale-0 transition-all duration-300" loading="lazy" />
+             <img src={logo.imagen} alt={logo.alt} class="h-8 md:h-10 w-auto max-w-[140px] object-contain" loading="lazy" />
            ))}
-           <!-- Duplicamos para el loop fluido en CSS básico -->
+           <!-- Duplicamos para el loop fluido -->
            {logos.map(logo => (
-             <img src={logo.imagen} alt={logo.alt} class="h-8 md:h-12 w-auto max-w-[150px] object-contain grayscale hover:grayscale-0 transition-all duration-300" loading="lazy" />
+             <img src={logo.imagen} alt={logo.alt} class="h-8 md:h-10 w-auto max-w-[140px] object-contain" loading="lazy" />
            ))}
          </div>
       </div>

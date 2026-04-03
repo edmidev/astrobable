@@ -24,26 +24,26 @@ const {
 if (!items || items.length === 0) return;
 ---
 
-<section class="py-24 md:py-32 bg-gray-50" id="caracteristicas">
+<section class="py-24 md:py-32 bg-[var(--surface)]" id="caracteristicas">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <div class="text-center mb-12 md:mb-16">
-      <h2 class="max-w-2xl mx-auto text-3xl md:text-4xl font-bold text-gray-900 mb-4">{titulo}</h2>
-      {subtitulo && <p class="max-w-2xl mx-auto text-lg text-gray-600">{subtitulo}</p>}
+    <div class="text-center mb-16">
+      <h2 class="section-title mb-4">{titulo}</h2>
+      {subtitulo && <p class="section-subtitle">{subtitulo}</p>}
     </div>
     
     {layout === "grid" && (
-      <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+      <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16">
         {items.map(item => (
-          <div class="flex gap-4">
-            <div class="flex-shrink-0 mt-1">
-              <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600">
-                <Icon name={`lucide:${item.icono}`} class="w-6 h-6" />
+          <div class="flex gap-6">
+            <div class="flex-shrink-0">
+              <div class="w-14 h-14 bg-[var(--surface-container-low)] rounded-2xl flex items-center justify-center text-[var(--primary)] shadow-sm">
+                <Icon name={`lucide:${item.icono}`} class="w-7 h-7" />
               </div>
             </div>
             <div>
-              <h3 class="text-xl font-semibold text-gray-900 mb-2">{item.titulo}</h3>
-              <p class="text-gray-600 leading-relaxed">{item.descripcion}</p>
+              <h3 class="text-xl font-bold text-[var(--on-surface)] mb-2">{item.titulo}</h3>
+              <p class="text-[var(--on-surface-variant)] leading-relaxed">{item.descripcion}</p>
             </div>
           </div>
         ))}

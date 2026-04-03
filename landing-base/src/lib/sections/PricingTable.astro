@@ -22,52 +22,50 @@ const { titulo, subtitulo, items } = Astro.props;
 if (!items || items.length === 0) return;
 ---
 
-<section class="py-24 md:py-32 bg-gray-50" id="precios">
+<section class="py-24 md:py-32 bg-[var(--surface-container-low)]" id="precios">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
-      <h2 class="max-w-2xl mx-auto text-3xl md:text-4xl font-bold text-gray-900 mb-4">{titulo}</h2>
-      {subtitulo && <p class="max-w-2xl mx-auto text-lg text-gray-600">{subtitulo}</p>}
+      <h2 class="section-title mb-4">{titulo}</h2>
+      {subtitulo && <p class="section-subtitle">{subtitulo}</p>}
     </div>
 
     <div class="flex flex-col lg:flex-row flex-wrap justify-center gap-8 items-center lg:items-stretch">
       {items.map(plan => (
-        <div class={`relative flex flex-col w-full max-w-sm rounded-2xl bg-white focus:outline-none focus-within:ring-2 focus-within:ring-blue-600 shadow-md flex-1 min-w-[300px] border ${plan.destacado ? 'border-primary ring-2 ring-primary scale-100 lg:scale-105 shadow-xl z-10' : 'border-gray-200'}`}>
+        <div class={`relative flex flex-col w-full max-w-sm rounded-[var(--radius-lg)] bg-[var(--surface-container-lowest)] shadow-[var(--shadow-ambient)] flex-1 min-w-[300px] transition-all duration-500 hover:shadow-[var(--shadow-float)] ${plan.destacado ? 'ring-2 ring-[var(--primary)] scale-100 lg:scale-105 z-10' : 'border border-[rgba(198,198,205,0.15)]'}`}>
           
           {plan.destacado && (
             <div class="absolute top-0 inset-x-0 flex justify-center -translate-y-1/2">
-              <span class="bg-blue-600 text-white text-sm font-bold uppercase tracking-wide py-1 px-4 rounded-full">
+              <span class="bg-[var(--primary)] text-white text-sm font-bold uppercase tracking-widest py-1.5 px-6 rounded-full shadow-lg">
                 Más Popular
               </span>
             </div>
           )}
 
-          <div class="p-8 pb-0">
-            <h3 class="text-2xl font-semibold text-gray-900">{plan.nombre}</h3>
-            {plan.descripcion && <p class="text-sm text-gray-500 mt-2">{plan.descripcion}</p>}
+          <div class="p-10 pb-0">
+            <h3 class="text-2xl font-bold text-[var(--on-surface)]">{plan.nombre}</h3>
+            {plan.descripcion && <p class="text-sm text-[var(--on-surface-variant)] mt-2 font-medium">{plan.descripcion}</p>}
             
-            <div class="mt-6 flex items-baseline gap-1">
-              <span class="text-5xl font-extrabold text-gray-900">{plan.precio}</span>
-              {plan.periodo && <span class="text-lg text-gray-500 font-medium">/{plan.periodo}</span>}
+            <div class="mt-8 flex items-baseline gap-1">
+              <span class="text-5xl font-extrabold text-[var(--on-surface)] tracking-tighter">{plan.precio}</span>
+              {plan.periodo && <span class="text-lg text-[var(--on-surface-variant)] font-medium opacity-60">/{plan.periodo}</span>}
             </div>
           </div>
 
-          <div class="flex-1 flex flex-col justify-between p-8 pt-0 mt-8">
-            <ul class="space-y-4 mb-8">
+          <div class="flex-1 flex flex-col justify-between p-10 pt-0 mt-8">
+            <ul class="space-y-5 mb-10">
               {plan.caracteristicas.map(feat => (
                 <li class="flex items-start gap-3">
-                  <Icon name="lucide:check" class="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
-                  <span class="text-gray-600">{feat}</span>
+                  <div class="mt-1 bg-[var(--surface-container-low)] rounded-full p-1">
+                    <Icon name="lucide:check" class="w-4 h-4 text-[var(--primary)] shrink-0" />
+                  </div>
+                  <span class="text-[var(--on-surface-variant)] font-medium">{feat}</span>
                 </li>
               ))}
             </ul>
 
             <a 
               href={plan.cta.enlace}
-              class={`block w-full text-center py-4 px-6 rounded-lg font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 ${
-                plan.destacado 
-                  ? "bg-blue-600 text-white hover:bg-blue-700 shadow-md focus:ring-blue-600" 
-                  : "bg-blue-50 text-blue-700 hover:bg-blue-100 focus:ring-blue-500"
-              }`}
+              class={`${plan.destacado ? 'btn-primary' : 'btn-secondary'} w-full text-center py-4 px-6 rounded-xl font-bold transition-all hover:scale-[1.02] active:scale-95`}
             >
               {plan.cta.texto}
             </a>

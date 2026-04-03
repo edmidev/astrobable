@@ -16,31 +16,31 @@ const {
 } = Astro.props;
 ---
 
-<section class="py-24 md:py-32 bg-white overflow-hidden">
+<section class="py-24 md:py-40 bg-[var(--surface-container-low)] overflow-hidden">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
       
-      <div class={`max-w-xl ${invertir ? 'lg:order-2 lg:pl-12' : 'lg:order-1'}`}>
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-6">
+      <div class={`max-w-xl ${invertir ? 'lg:order-2 lg:pl-16' : 'lg:order-1'}`}>
+        <h1 class="reveal delay-100 text-4xl md:text-6xl font-extrabold text-[var(--on-surface)] leading-[1.1] mb-8 tracking-[-0.03em]">
           {titulo}
         </h1>
-        <p class="text-lg md:text-xl text-gray-600 leading-relaxed mb-8">
+        <p class="reveal delay-300 text-lg md:text-xl text-[var(--on-surface-variant)] leading-relaxed mb-12 font-medium">
           {subtitulo}
         </p>
         <a 
           href={cta.enlace}
-          class="inline-flex items-center justify-center bg-blue-600 text-white font-medium px-8 py-4 rounded-lg text-lg hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
+          class="reveal delay-500 btn-primary px-10 py-5 rounded-2xl text-xl shadow-2xl"
         >
           {cta.texto}
         </a>
       </div>
 
-      <div class={`relative w-full aspect-square md:aspect-video lg:aspect-square rounded-2xl overflow-hidden shadow-2xl ${invertir ? 'lg:order-1' : 'lg:order-2'}`}>
+      <div class={`reveal delay-200 relative w-full aspect-square md:aspect-video lg:aspect-square rounded-3xl overflow-hidden shadow-[var(--shadow-float)] ${invertir ? 'lg:order-1' : 'lg:order-2'}`}>
         {imagen ? (
-          <img src={imagen} alt={titulo} class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+          <img src={imagen} alt={titulo} class="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-1000" loading="lazy" />
         ) : (
-          <div class="absolute inset-0 bg-gradient-to-tr from-blue-100 to-blue-50 flex items-center justify-center">
-            <span class="text-blue-300 font-medium text-lg">Imagen Destacada</span>
+          <div class="absolute inset-0 bg-gradient-to-tr from-[var(--surface-container-high)] to-[var(--surface-container-lowest)] flex items-center justify-center">
+            <span class="text-[var(--on-surface-variant)] font-medium text-lg opacity-30">Imagen Destacada</span>
           </div>
         )}
       </div>
