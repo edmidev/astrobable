@@ -1,0 +1,90 @@
+---
+interface Props {
+  titulo: string;
+  contenido: string;
+  imagen?: string;
+  layout?: "centrado" | "texto-imagen" | "imagen-texto";
+}
+
+const { 
+  titulo, 
+  contenido, 
+  imagen, 
+  layout = "centrado" 
+} = Astro.props;
+
+// Función simple para transformar saltos de línea a párrafos
+const pContenido = contenido.split('\n\n').filter(p => p.trim() !== '');
+---
+
+<section class="py-24 md:py-32 bg-white" id="nosotros">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    {layout === "centrado" && (
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8">{titulo}</h2>
+        
+        {imagen && (
+          <div class="mb-10 w-full aspect-video rounded-xl overflow-hidden shadow-lg object-cover">
+            <img src={imagen} alt={titulo} class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        )}
+        
+        <div class="space-y-6 text-left">
+          {pContenido.map(p => (
+            <p class="text-lg leading-relaxed text-gray-600">{p}</p>
+          ))}
+        </div>
+      </div>
+    )}
+
+    {layout === "texto-imagen" && (
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">{titulo}</h2>
+          <div class="space-y-6">
+            {pContenido.map(p => (
+              <p class="text-lg leading-relaxed text-gray-600">{p}</p>
+            ))}
+          </div>
+        </div>
+        
+        {imagen ? (
+          <div class="w-full aspect-square md:aspect-video lg:aspect-square rounded-xl overflow-hidden shadow-lg relative">
+            <img src={imagen} alt={titulo} class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+          </div>
+        ) : (
+          <div class="w-full aspect-square lg:aspect-[4/3] rounded-xl bg-gray-100 flex items-center justify-center shadow-inner border border-gray-200">
+            <span class="text-gray-400 font-medium">Sin imagen</span>
+          </div>
+        )}
+      </div>
+    )}
+
+    {layout === "imagen-texto" && (
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        
+        {imagen ? (
+          <div class="order-2 lg:order-1 w-full aspect-square md:aspect-video lg:aspect-[4/3] rounded-xl overflow-hidden shadow-lg relative">
+            <img src={imagen} alt={titulo} class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+          </div>
+        ) : (
+          <div class="order-2 lg:order-1 w-full aspect-square lg:aspect-square rounded-xl bg-gray-100 flex items-center justify-center shadow-inner border border-gray-200">
+            <span class="text-gray-400 font-medium">Sin imagen</span>
+          </div>
+        )}
+
+        <div class="order-1 lg:order-2">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">{titulo}</h2>
+          <div class="space-y-6">
+            {pContenido.map(p => (
+              <p class="text-lg leading-relaxed text-gray-600">{p}</p>
+            ))}
+          </div>
+        </div>
+        
+      </div>
+    )}
+
+  </div>
+</section>

@@ -1,0 +1,91 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Item {
+  titulo: string;
+  descripcion: string;
+  icono?: string;
+  imagen?: string;
+  precio?: string;
+  etiqueta?: string;
+  enlace?: { texto: string; url: string };
+}
+
+interface Props {
+  titulo: string;
+  subtitulo?: string;
+  items: Item[];
+  columnas?: 2 | 3 | 4;
+  estilo?: "simple" | "con-imagen" | "horizontal" | "destacada";
+}
+
+const { 
+  titulo, 
+  subtitulo, 
+  items, 
+  columnas = 3, 
+  estilo = "simple" 
+} = Astro.props;
+
+if (!items || items.length === 0) return;
+
+const gridCols = {
+  2: "lg:grid-cols-2",
+  3: "lg:grid-cols-3",
+  4: "lg:grid-cols-4",
+};
+
+const hasImage = estilo === "con-imagen" || estilo === "destacada";
+---
+
+<section class="py-24 md:py-32 bg-white" id="servicios">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12 md:mb-16">
+      <h2 class="max-w-2xl mx-auto text-3xl md:text-4xl font-bold text-gray-900 mb-4">{titulo}</h2>
+      {subtitulo && <p class="max-w-2xl mx-auto text-lg text-gray-600">{subtitulo}</p>}
+    </div>
+    
+    <div class={`grid grid-cols-1 md:grid-cols-2 ${gridCols[columnas]} gap-6 md:gap-8`}>
+      {items.map((item, index) => (
+        <div class={`group flex flex-col rounded-xl border border-gray-100 bg-white shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden ${estilo === "destacada" && index === 0 ? "lg:col-span-2 md:flex-row" : ""}`}>
+          
+          {(hasImage && item.imagen) ? (
+            <div class={`relative ${estilo === "destacada" && index === 0 ? "md:w-1/2" : "aspect-video"}`}>
+              <img src={item.imagen} alt={item.titulo} class="w-full h-full object-cover" loading="lazy" />
+              {item.etiqueta && (
+                <span class="absolute top-4 right-4 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">{item.etiqueta}</span>
+              )}
+            </div>
+          ) : hasImage ? (
+            <div class={`relative bg-gradient-to-tr from-gray-100 to-gray-200 flex items-center justify-center ${estilo === "destacada" && index === 0 ? "md:w-1/2 aspect-auto" : "aspect-video"}`}>
+              {item.icono ? <Icon name={`lucide:${item.icono}`} class="w-12 h-12 text-gray-400 opacity-50" /> : <Icon name="lucide:image" class="w-12 h-12 text-gray-400 opacity-50" />}
+              {item.etiqueta && (
+                <span class="absolute top-4 right-4 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">{item.etiqueta}</span>
+              )}
+            </div>
+          ) : null}
+          
+          <div class={`p-6 flex flex-col flex-grow ${estilo === "destacada" && index === 0 && (hasImage) ? "md:w-1/2" : ""}`}>
+            <div class="flex items-start justify-between gap-4 mb-3">
+              {item.icono && !hasImage && (
+                <div class="p-3 rounded-lg bg-blue-50 text-blue-600 flex-shrink-0">
+                  <Icon name={`lucide:${item.icono}`} class="w-6 h-6" />
+                </div>
+              )}
+              <h3 class="text-xl font-semibold text-gray-900 mt-1">{item.titulo}</h3>
+              {item.precio && <span class="font-bold text-lg text-blue-600">{item.precio}</span>}
+            </div>
+            
+            <p class="text-gray-600 leading-relaxed mb-4 flex-grow text-base md:text-lg">{item.descripcion}</p>
+            
+            {item.enlace && (
+              <a href={item.enlace.url} class="text-blue-600 font-medium hover:text-blue-700 hover:underline flex items-center gap-1 mt-auto w-fit">
+                {item.enlace.texto} <Icon name="lucide:arrow-right" class="w-4 h-4" />
+              </a>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

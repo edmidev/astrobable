@@ -1,0 +1,99 @@
+---
+import { empresa } from "../lib/data/empresa.js";
+import { generateOrganizationSchema } from "../lib/utils/seo.js";
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = empresa.seo.titulo, description = empresa.seo.descripcion } = Astro.props;
+const jsonLd = generateOrganizationSchema(empresa);
+---
+
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <!-- Google Fonts (Inter por defecto) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <title>{title}</title>
+
+    <!-- Open Graph / Meta / SEO básico -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={empresa.seo.ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json" set:html={jsonLd} />
+  </head>
+  <body class="bg-white text-gray-800 antialiased pt-16 md:pt-20">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:p-4 focus:bg-white focus:text-primary">Skip to main content</a>
+    
+    <slot />
+
+    <style is:global>
+      /* Animaciones reveladoras */
+      .reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 500ms ease-out, transform 500ms ease-out;
+      }
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      
+      @media (prefers-reduced-motion: reduce) {
+        .reveal {
+          transform: none !important;
+          transition: opacity 500ms ease-out !important;
+        }
+      }
+    </style>
+
+    <script>
+      const initAnimations = () => {
+        const sections = document.querySelectorAll('main > section');
+        
+        sections.forEach(section => {
+          section.classList.add('reveal');
+          
+          // Seleccionar elementos de grillas internamente para aplicar delay escalonado
+          const gridItems = section.querySelectorAll('.grid > div');
+          gridItems.forEach((item, index) => {
+            item.classList.add('reveal');
+            // Delay escalonado de 100ms para cada item de la grilla
+            const baseDelay = 100 + ((index % 4) * 100);
+            item.style.transitionDelay = `${baseDelay}ms`;
+          });
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target); 
+            }
+          });
+        }, {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px"
+        });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+      };
+
+      document.addEventListener('DOMContentLoaded', initAnimations);
+    </script>
+  </body>
+</html>

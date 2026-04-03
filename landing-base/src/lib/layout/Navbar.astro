@@ -1,0 +1,29 @@
+---
+import { empresa } from "../data/empresa.js";
+import { Icon } from 'astro-icon/components';
+---
+<nav class="fixed top-0 w-full z-50 h-16 md:h-20 bg-white/90 backdrop-blur-md shadow-sm transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2">
+      {empresa.logo ? (
+        <img src={empresa.logo} alt={empresa.nombre} class="h-8 md:h-10 max-w-[160px] object-contain" />
+      ) : (
+        <span class="text-xl font-bold font-inter text-gray-900">{empresa.nombre}</span>
+      )}
+    </a>
+    <div class="hidden md:flex items-center gap-8">
+      {empresa.servicios && empresa.servicios.length > 0 && <a href="#servicios" class="text-gray-600 hover:text-blue-600 font-medium transition-colors">Servicios</a>}
+      {empresa.sobreNosotros && empresa.sobreNosotros.texto && <a href="#nosotros" class="text-gray-600 hover:text-blue-600 font-medium transition-colors">Nosotros</a>}
+      <a href="#contacto" class="text-gray-600 hover:text-blue-600 font-medium transition-colors">Contacto</a>
+      
+      {empresa.cta && (
+        <a href={empresa.cta.enlace} class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+          {empresa.cta.texto}
+        </a>
+      )}
+    </div>
+    <button aria-label="Menú" class="md:hidden text-gray-600">
+      <Icon name="lucide:menu" class="w-6 h-6" />
+    </button>
+  </div>
+</nav>

@@ -1,0 +1,600 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>The Artisanal Hearth | Slow-fermented &amp; Stone-ground</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,700;1,400;1,700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              outline: "#847467",
+              surface: "#fdf8f5",
+              "tertiary-container": "#b88d23",
+              "on-tertiary": "#ffffff",
+              "on-surface": "#1c1b1a",
+              "on-primary": "#ffffff",
+              "on-error": "#ffffff",
+              error: "#ba1a1a",
+              "on-primary-container": "#462400",
+              "on-tertiary-fixed-variant": "#5b4300",
+              "surface-tint": "#855324",
+              "secondary-fixed-dim": "#e1c299",
+              "surface-variant": "#e6e2df",
+              "secondary-container": "#fbdbb0",
+              "surface-container-high": "#ece7e4",
+              "outline-variant": "#d6c3b4",
+              secondary: "#725a39",
+              "on-primary-fixed": "#2e1500",
+              "primary-fixed-dim": "#fbb980",
+              "on-surface-variant": "#524439",
+              "inverse-surface": "#32302e",
+              "surface-container-highest": "#e6e2df",
+              "secondary-fixed": "#feddb3",
+              "on-primary-fixed-variant": "#693c0e",
+              "inverse-primary": "#fbb980",
+              "primary-fixed": "#ffdcc1",
+              "surface-container": "#f2edea",
+              "on-background": "#1c1b1a",
+              "on-secondary-container": "#765f3d",
+              "tertiary-fixed": "#ffdf9f",
+              "tertiary-fixed-dim": "#f0c052",
+              "on-secondary-fixed": "#281801",
+              primary: "#855324",
+              "error-container": "#ffdad6",
+              "on-secondary-fixed-variant": "#584324",
+              background: "#fdf8f5",
+              "on-tertiary-container": "#3b2a00",
+              "surface-container-lowest": "#ffffff",
+              "on-error-container": "#93000a",
+              "on-tertiary-fixed": "#261a00",
+              "on-secondary": "#ffffff",
+              "surface-container-low": "#f8f3f0",
+              "inverse-on-surface": "#f5f0ed",
+              "surface-dim": "#ded9d6",
+              "surface-bright": "#fdf8f5",
+              tertiary: "#795900",
+              "primary-container": "#c28753",
+            },
+            fontFamily: {
+              headline: ["Newsreader", "serif"],
+              body: ["Plus Jakarta Sans", "sans-serif"],
+              label: ["Plus Jakarta Sans", "sans-serif"],
+            },
+            borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      body {
+        scroll-behavior: smooth;
+        background-color: #fdf8f5;
+        color: #1c1b1a;
+        font-family: "Plus Jakarta Sans", sans-serif;
+      }
+      .glass-nav {
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+      .artisan-gradient {
+        background: linear-gradient(135deg, #855324 0%, #c28753 100%);
+      }
+    </style>
+  </head>
+  <body class="bg-surface selection:bg-primary-container selection:text-on-primary-container">
+    <!-- TopNavBar -->
+    <nav class="fixed top-0 w-full z-50 bg-stone-50/80 backdrop-blur-md transition-all duration-300">
+      <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+        <div class="text-2xl font-serif italic text-orange-900">The Artisanal Hearth</div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a class="text-orange-900 font-bold border-b-2 border-orange-800 font-serif italic text-lg" href="#">Our Breads</a>
+          <a class="text-stone-600 hover:text-orange-800 transition-colors font-serif italic text-lg" href="#">Process</a>
+          <a class="text-stone-600 hover:text-orange-800 transition-colors font-serif italic text-lg" href="#">Gallery</a>
+          <a class="text-stone-600 hover:text-orange-800 transition-colors font-serif italic text-lg" href="#">Contact</a>
+        </div>
+        <button
+          class="bg-primary text-on-primary px-6 py-2.5 rounded-xl font-medium artisan-gradient hover:scale-105 transition-transform duration-300"
+        >
+          Order Online
+        </button>
+      </div>
+    </nav>
+    <!-- HeroBanner -->
+    <section class="relative h-[921px] flex items-center justify-center overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <img
+          alt="Artisan Sourdough"
+          class="w-full h-full object-cover"
+          data-alt="Close-up of freshly baked artisan sourdough bread with a crispy golden crust dusted with flour, sitting on a rustic wooden table in warm morning light."
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBzUnE3NkZX7kvjPSipsxdVTc7MFwn_vhPdk_JFDTkEI1YruKY8CEkY4vYD8bvlv2Vr1RqDajmI1g_FGCGUCpZw-kSyeaqfC3O7o3Q4YRwRe4Abwg0q-YlCtV-bp0RCgj9IJxNIqNoHfgv8qxw56Dr1uYD5eWdOatatdMCjaTkTl81VpmIi7UaF86HS9zOc0Edc61w7eBI3RtLKgU5gG5jIMKkxw3AMoYFMRFJqWDp2s9wvA21AnbJSsiAS79ziNcjR2PtOTi14-9B"
+        />
+        <div class="absolute inset-0 bg-stone-900/40"></div>
+      </div>
+      <div class="relative z-10 text-center px-4">
+        <h1 class="font-headline italic text-5xl md:text-8xl text-surface mb-6 drop-shadow-lg">
+          Bread as it <span class="italic text-tertiary-fixed">was meant</span> to be.
+        </h1>
+        <p class="font-body text-xl text-surface-container-low max-w-2xl mx-auto mb-10">
+          Experience the revival of ancient grains and slow fermentation in every crusty, golden loaf.
+        </p>
+        <div class="flex flex-col md:flex-row gap-4 justify-center">
+          <button class="artisan-gradient text-on-primary px-8 py-4 rounded-xl text-lg font-semibold hover:scale-105 transition-all shadow-xl">
+            Explore Our Sourdough
+          </button>
+          <button
+            class="bg-surface/10 backdrop-blur-md border border-surface/20 text-surface px-8 py-4 rounded-xl text-lg font-semibold hover:bg-surface/20 transition-all"
+          >
+            Watch Our Story
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- HeroSplit -->
+    <section class="py-24 px-8 max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+        <div class="order-2 md:order-1">
+          <span class="font-headline italic text-tertiary text-2xl mb-4 block">The Hands of a Craftsman</span>
+          <h2 class="font-headline text-4xl md:text-6xl text-on-surface mb-8 leading-tight">Patient hands, <br />patient grains.</h2>
+          <p class="font-body text-lg text-on-surface-variant leading-relaxed mb-6">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+            minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </p>
+          <p class="font-body text-lg text-on-surface-variant leading-relaxed italic">
+            "We believe that true flavor cannot be rushed. It must be coaxed out through time, temperature, and a touch of alchemy."
+          </p>
+        </div>
+        <div class="order-1 md:order-2 relative">
+          <div class="rounded-xl overflow-hidden aspect-[4/5] shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500">
+            <img
+              alt="Baker at work"
+              class="w-full h-full object-cover"
+              data-alt="A focused baker with flour-dusted hands gently shaping a large loaf of dough on a dark stone flour-covered work surface in a sunlit bakery."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZXu3HvGlH93TTDJ9z4D4iG5Egji7GJmz37NZBkxgygv8oLIWUtrFGlHWXgHshJKLXEN5CZYwEbehyMM5Q7158Oq7ComKLBMt_t-j5o_0EKkoQ7VoanlaIQmW05z_XBmeqyGK0-zwfzIQHwU-ZRXSXE616QVgCAavbtz970Vt7TgRUtHj-Xyv5_3ibH_qHDq3T7ofdZkVeP0yBJ0aU9yPEzw-__QoC_yqnl20xggyZq9zgMhVoSK87vBWtQ7EqydGztng1H8TsuwZI"
+            />
+          </div>
+          <div
+            class="absolute -bottom-6 -left-6 bg-tertiary-container text-on-tertiary p-8 rounded-xl shadow-lg max-w-[200px] hidden md:block -rotate-3"
+          >
+            <span class="text-4xl font-headline italic">12</span>
+            <p class="font-label text-sm uppercase tracking-widest mt-2">Months of naturally aged starter</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- CardGrid -->
+    <section class="py-24 bg-surface-container-low">
+      <div class="max-w-7xl mx-auto px-8">
+        <div class="text-center mb-16">
+          <h2 class="font-headline text-4xl md:text-5xl text-on-surface mb-4">Our Signature Breads</h2>
+          <div class="h-1 w-24 artisan-gradient mx-auto rounded-full"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <!-- Card 1 -->
+          <div class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:bg-surface-container-high transition-all duration-300">
+            <div class="relative h-72">
+              <img
+                alt="Heritage Sourdough"
+                class="w-full h-full object-cover"
+                data-alt="A rustic round sourdough boule with a deep caramelized crust and intricate scoring patterns resting on a linen cloth."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBW_A8pj37WTw5n8So7kmpc6ddzEfyO2jz23TgZCk_8ZD6FtBwaM3EIaGP-OBS8utM7lhOziRyS68NRBrvdDRIDSieGY9g9oegINx7wriQYSXqPlDoh3C6atvfo3jbBlb6APOQ4ULjsrydh54beHBA7NgArOjnLUMU4asHErwTLFegGT9tj0-iao0AM_CmjRf5gZ7eAfF63oTgSuNAgNl0PMXmfaWKYXLT5p7EkkZ1wfK4C1w6jmj8oivivbJsllNE8DfX6XhCUzoNr"
+              />
+              <span class="absolute top-4 left-4 bg-tertiary-container text-on-tertiary-container px-4 py-1 rounded-full text-sm font-label font-bold"
+                >Limited Edition</span
+              >
+            </div>
+            <div class="p-8">
+              <h3 class="font-headline text-2xl text-on-surface mb-2">Heritage Sourdough</h3>
+              <p class="text-on-surface-variant font-body mb-4">Slow-fermented for 48 hours using our heirloom 12-month-old starter.</p>
+              <div class="flex justify-between items-center">
+                <span class="text-primary font-bold text-xl">$9.50</span>
+                <button class="text-primary font-semibold flex items-center group-hover:translate-x-1 transition-transform">
+                  Reserve <span class="material-symbols-outlined ml-1">arrow_forward</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Card 2 -->
+          <div class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:bg-surface-container-high transition-all duration-300">
+            <div class="relative h-72">
+              <img
+                alt="French Baguette"
+                class="w-full h-full object-cover"
+                data-alt="Three long, crusty French baguettes leaning against a flour-covered wooden crate in a warm-toned bakery environment."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuADoQwMFqElo3qTvE9kBMh-chopaB8fuJq1tLe-XF_0rjO-x4lqqqSEHhLytSxbd-U07qjUgNyvUM4KK6PVBtI4txJrxaoFoKE5130XJER94uzxHs8Azm0jizCKeKr1LKlv2K0Ikj3CBQO1f3kpx1TtW5CiIjMk6f1jP-V2g_3GhYvu7gzOUc_B_uHzJFezyFoHogXSD4gmIh24Gi-PpwVbU4zEw4xN_tvJ5FKdUYGaGfal7twaryOvTMfstfNXcK-OAyUnQKazN2QS"
+              />
+            </div>
+            <div class="p-8">
+              <h3 class="font-headline text-2xl text-on-surface mb-2">Artisan Baguette</h3>
+              <p class="text-on-surface-variant font-body mb-4">Classic French style with a thin, crackling crust and an airy, light interior.</p>
+              <div class="flex justify-between items-center">
+                <span class="text-primary font-bold text-xl">$4.25</span>
+                <button class="text-primary font-semibold flex items-center group-hover:translate-x-1 transition-transform">
+                  Reserve <span class="material-symbols-outlined ml-1">arrow_forward</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <div class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:bg-surface-container-high transition-all duration-300">
+            <div class="relative h-72">
+              <img
+                alt="Morning Croissant"
+                class="w-full h-full object-cover"
+                data-alt="Multiple golden, flaky, butter-rich croissants stacked on a ceramic plate with warm, soft-focus highlights."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmu4zRLbqIZ_mV2b8u0TpIFHTMnyYzqYsTSCoz14aX3kFtJ06YoYnwSZfaMV-UDeQ8udpk6zKuR_m_DCQlFgu5lGQ-f89OqHRgNW8ure2Ry7rfAY31gHplvK03PvYxh0PFY3_uJd0quqHyKK_KhV_LmmAGK88ufUpusObfC-5obPPxQHl2H7P2gRomi5Gj4bJ37B5nPBlnW1tQHjNFlWyMUzng9JbN9fTMlgTsRGUNR-e3r2B3LFYgKrAUhft-uzh9lCGcUxC7I_Cz"
+              />
+              <span class="absolute top-4 left-4 bg-primary-container text-on-primary-container px-4 py-1 rounded-full text-sm font-label font-bold"
+                >Best Seller</span
+              >
+            </div>
+            <div class="p-8">
+              <h3 class="font-headline text-2xl text-on-surface mb-2">Butter Croissant</h3>
+              <p class="text-on-surface-variant font-body mb-4">Layered with grass-fed organic butter for ultimate flakiness and rich flavor.</p>
+              <div class="flex justify-between items-center">
+                <span class="text-primary font-bold text-xl">$3.75</span>
+                <button class="text-primary font-semibold flex items-center group-hover:translate-x-1 transition-transform">
+                  Reserve <span class="material-symbols-outlined ml-1">arrow_forward</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- FeatureList -->
+    <section class="py-24 max-w-7xl mx-auto px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+        <div class="flex flex-col items-center text-center">
+          <div class="w-16 h-16 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center mb-6">
+            <span class="material-symbols-outlined text-4xl">eco</span>
+          </div>
+          <h4 class="font-headline text-2xl mb-4">Stone-ground Flour</h4>
+          <p class="text-on-surface-variant">We source our grains from local mills that use cold-stone grinding to preserve nutrients and oils.</p>
+        </div>
+        <div class="flex flex-col items-center text-center">
+          <div class="w-16 h-16 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center mb-6">
+            <span class="material-symbols-outlined text-4xl">schedule</span>
+          </div>
+          <h4 class="font-headline text-2xl mb-4">48-Hour Fermentation</h4>
+          <p class="text-on-surface-variant">Time is our most important ingredient. Long fermentation ensures easy digestion and complex depth.</p>
+        </div>
+        <div class="flex flex-col items-center text-center">
+          <div class="w-16 h-16 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center mb-6">
+            <span class="material-symbols-outlined text-4xl">local_shipping</span>
+          </div>
+          <h4 class="font-headline text-2xl mb-4">Organic Sourcing</h4>
+          <p class="text-on-surface-variant">Every egg, splash of milk, and handful of seeds comes from trusted organic farms within 50 miles.</p>
+        </div>
+      </div>
+    </section>
+    <!-- TextBlock -->
+    <section class="py-24 bg-surface-container overflow-hidden">
+      <div class="max-w-4xl mx-auto px-8 text-center relative">
+        <span class="material-symbols-outlined text-6xl text-outline-variant opacity-30 absolute -top-10 left-10">format_quote</span>
+        <p class="font-headline italic text-3xl md:text-4xl text-primary leading-relaxed">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+          ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        </p>
+        <div class="mt-8 font-label text-sm uppercase tracking-widest text-on-surface-variant">— The Baker's Creed</div>
+      </div>
+    </section>
+    <!-- Gallery (Editorial Bento) -->
+    <section class="py-24 max-w-7xl mx-auto px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[250px]">
+        <div class="md:col-span-2 md:row-span-2 rounded-xl overflow-hidden shadow-lg">
+          <img
+            class="w-full h-full object-cover"
+            data-alt="Wide angle shot of the warm, wooden interior of the bakery with rows of bread on shelves and soft hanging lights."
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEV84pYNEQuZkz0otygaRfcXCGNWbPrX2Pxn9vTBheijdLNoBZ_oppJrP9H13yiWDxZaY6itMtvL1poxkMX_zCDSx3xYEEd7mWfDEnWVpD3q4TIEeXMNuiT131f5BJEqwwcrOhj9bvHvv5akerZH_VLXu6KwXJiurUiswK9l64SwtYmuuGEsRfWQVtgE60lF_9sGypLG4f3LdTfhA4KbxCNjdpXvzJbvayOki6fZh54BJb1Aixk3ZcLqWui0Qq28ZvCGy-tIgXZD2D"
+          />
+        </div>
+        <div class="rounded-xl overflow-hidden shadow-lg">
+          <img
+            class="w-full h-full object-cover"
+            data-alt="Close-up of a dusting of white flour on a dark wood surface being sifted."
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTG8SDrJS1oOISRDisDzvbl2nn6dhaJfvmNc8htGL_gEdH8r71FvggxpVuyxTvIDmm1UNnT3Pi2NYZGnXDF9TFOAnw2RiBTStnqOJ6IG1p1WmFUyM4nMBZja8WT1lLNAFUrDPW7nkRfRNG4qS7ZWcCmFZPoWqtSgs_lA9PjCGiYtU62_QL8-KbNlvpRhxpREX_2pc7ECZx6CFQYsoI64k-8eEU3hTs_5UfO-B4KW4zGHqKAtsW61YoXBF8TPrZXEU33CesORorMR-M"
+          />
+        </div>
+        <div class="md:row-span-2 rounded-xl overflow-hidden shadow-lg">
+          <img
+            class="w-full h-full object-cover"
+            data-alt="Baker pulling a long tray of perfectly browned loaves from a stone oven."
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOcklIIChKDRZp1HHsQmwQo239ny--WsnGxIJtruMwcZT8ZlG9AE7V3UmUxO8Eiaw7AXSCfeyWJpL95iKgEW-YaDsovIsVVKJu7G2Fwsns3HrwvmJCu_LvI6x_acRwr1PUFdXuS1MVt7JZl2P5uI3OKWSSghgHVW6lkJPo3WmacrqLq3NEhRB-fU8A2lSejVTTgoCI4gurvwDyv5Rghi7kqgLW9o-78G30GInFEDCJD8hcUlZLCYyODKisuCLHqr7hIrRT4H4KWLkQ"
+          />
+        </div>
+        <div class="rounded-xl overflow-hidden shadow-lg">
+          <img
+            class="w-full h-full object-cover"
+            data-alt="Overhead shot of a rustic breakfast spread with bread, butter, and jam on a sunlit table."
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBy2VbIU8ZY2bFHXAWgu1D71Q4kOIRfgstekQtgZ4vCvWIzzVG3dpliEp8f2sapOmuBnXwZFiP4y7gSx_LjorlDL930n2VmkO5F0vaVwsmL9CO11si4ayD1Bu8JNO8pGdMD_Ie0RiMCjQsJaeOFAqlMNXMumND8FfoNsTcB8tjlkKsiphMQo62Vs7mwz4hlkoJ4DEkhXqEjcKte9lEiu9dOUR6lvxv8Icf2v3T7S0EGR8TzofNz07ZTuPcHsrH5GbkWuhgzNgmKYr1l"
+          />
+        </div>
+      </div>
+    </section>
+    <!-- Testimonials -->
+    <section class="py-24 bg-stone-900 text-surface">
+      <div class="max-w-7xl mx-auto px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div class="space-y-6">
+            <div class="flex text-tertiary">
+              <span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1">star</span>
+              <span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1">star</span>
+              <span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1">star</span>
+              <span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1">star</span>
+              <span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1">star</span>
+            </div>
+            <p class="font-body text-lg italic">
+              "The crust on the sourdough is unlike anything I've ever tasted. It's like a trip to a tiny village in France every morning."
+            </p>
+            <div class="font-label">— Sarah J., Local Food Critic</div>
+          </div>
+          <div class="space-y-6">
+            <div class="flex text-tertiary">
+              <span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1">star</span>
+              <span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1">star</span>
+              <span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1">star</span>
+              <span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1">star</span>
+              <span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1">star</span>
+            </div>
+            <p class="font-body text-lg italic">
+              "Their bread subscription is the highlight of my week. Real bread made by real people. You can taste the integrity."
+            </p>
+            <div class="font-label">— Marcus T., Long-time Customer</div>
+          </div>
+          <div class="space-y-6">
+            <div class="flex text-tertiary">
+              <span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1">star</span>
+              <span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1">star</span>
+              <span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1">star</span>
+              <span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1">star</span>
+              <span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1">star</span>
+            </div>
+            <p class="font-body text-lg italic">
+              "As a professional chef, I'm picky about my grains. The Artisanal Hearth is the only place I trust for my dinner parties."
+            </p>
+            <div class="font-label">— Elena R., Executive Chef</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- StatsBar -->
+    <section class="py-16 bg-surface-container-highest">
+      <div class="max-w-7xl mx-auto px-8 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <div class="text-4xl md:text-5xl font-headline italic text-primary">15</div>
+          <div class="font-label text-sm text-on-surface-variant uppercase mt-2">Years of Craft</div>
+        </div>
+        <div>
+          <div class="text-4xl md:text-5xl font-headline italic text-primary">50+</div>
+          <div class="font-label text-sm text-on-surface-variant uppercase mt-2">Breads &amp; Pastries</div>
+        </div>
+        <div>
+          <div class="text-4xl md:text-5xl font-headline italic text-primary">10k+</div>
+          <div class="font-label text-sm text-on-surface-variant uppercase mt-2">Happy Locals</div>
+        </div>
+        <div>
+          <div class="text-4xl md:text-5xl font-headline italic text-primary">3</div>
+          <div class="font-label text-sm text-on-surface-variant uppercase mt-2">Heritage Starters</div>
+        </div>
+      </div>
+    </section>
+    <!-- PricingTable -->
+    <section class="py-24 bg-surface">
+      <div class="max-w-7xl mx-auto px-8">
+        <h2 class="font-headline text-4xl text-center mb-16">The Hearth Experiences</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="p-10 rounded-xl bg-surface-container border border-outline-variant/10 flex flex-col hover:shadow-xl transition-shadow">
+            <h3 class="font-headline text-2xl mb-4">Breakfast Set</h3>
+            <p class="font-body text-on-surface-variant mb-8">Daily baked selection for two, including pastries and a sourdough baguette.</p>
+            <div class="text-4xl font-headline text-primary mb-8">$25<span class="text-lg font-body text-on-surface-variant"> / day</span></div>
+            <ul class="space-y-4 mb-10 flex-grow">
+              <li class="flex items-center"><span class="material-symbols-outlined text-primary mr-2">check</span> 2 Butter Croissants</li>
+              <li class="flex items-center"><span class="material-symbols-outlined text-primary mr-2">check</span> 1 French Baguette</li>
+              <li class="flex items-center"><span class="material-symbols-outlined text-primary mr-2">check</span> House-made Jam</li>
+            </ul>
+            <button class="w-full py-3 rounded-xl bg-surface-container-highest font-semibold">Order Now</button>
+          </div>
+          <div class="p-10 rounded-xl bg-surface-container-lowest border-2 border-primary flex flex-col scale-105 shadow-2xl relative">
+            <div
+              class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-on-primary px-6 py-1 rounded-full text-xs font-bold uppercase tracking-widest"
+            >
+              Most Popular
+            </div>
+            <h3 class="font-headline text-2xl mb-4">Bread Box Subscription</h3>
+            <p class="font-body text-on-surface-variant mb-8">A curated selection of our finest heritage loaves delivered weekly to your door.</p>
+            <div class="text-4xl font-headline text-primary mb-8">$45<span class="text-lg font-body text-on-surface-variant"> / week</span></div>
+            <ul class="space-y-4 mb-10 flex-grow">
+              <li class="flex items-center"><span class="material-symbols-outlined text-primary mr-2">check</span> 3 Heritage Boules</li>
+              <li class="flex items-center"><span class="material-symbols-outlined text-primary mr-2">check</span> Free Local Delivery</li>
+              <li class="flex items-center"><span class="material-symbols-outlined text-primary mr-2">check</span> Priority Access</li>
+            </ul>
+            <button class="w-full py-3 rounded-xl artisan-gradient text-on-primary font-semibold shadow-lg">Join the Club</button>
+          </div>
+          <div class="p-10 rounded-xl bg-surface-container border border-outline-variant/10 flex flex-col hover:shadow-xl transition-shadow">
+            <h3 class="font-headline text-2xl mb-4">Baker's Choice Menu</h3>
+            <p class="font-body text-on-surface-variant mb-8">A bespoke experience featuring our rarest experimental grains and ferments.</p>
+            <div class="text-4xl font-headline text-primary mb-8">$80<span class="text-lg font-body text-on-surface-variant"> / meal</span></div>
+            <ul class="space-y-4 mb-10 flex-grow">
+              <li class="flex items-center"><span class="material-symbols-outlined text-primary mr-2">check</span> 5-Course Bread Pairing</li>
+              <li class="flex items-center"><span class="material-symbols-outlined text-primary mr-2">check</span> Wine &amp; Cheese Selection</li>
+              <li class="flex items-center"><span class="material-symbols-outlined text-primary mr-2">check</span> Limited to 10 guests</li>
+            </ul>
+            <button class="w-full py-3 rounded-xl bg-surface-container-highest font-semibold">Inquire Availability</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ContactForm & MapSection -->
+    <section class="py-24 bg-surface-container-low">
+      <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-16">
+        <div class="bg-surface-container-lowest p-10 rounded-xl shadow-lg">
+          <h2 class="font-headline text-3xl mb-4">Send us a Note</h2>
+          <p class="font-body text-on-surface-variant mb-8">
+            Whether it's a wholesale inquiry or a simple bread question, we'd love to hear from you.
+          </p>
+          <form class="space-y-6">
+            <div>
+              <label class="block font-label text-sm mb-2">Name</label>
+              <input class="w-full bg-surface-container-low border-none rounded-lg p-4 focus:ring-2 focus:ring-primary/20" type="text" />
+            </div>
+            <div>
+              <label class="block font-label text-sm mb-2">Email Address</label>
+              <input class="w-full bg-surface-container-low border-none rounded-lg p-4 focus:ring-2 focus:ring-primary/20" type="email" />
+            </div>
+            <div>
+              <label class="block font-label text-sm mb-2">How can we help?</label>
+              <textarea class="w-full bg-surface-container-low border-none rounded-lg p-4 focus:ring-2 focus:ring-primary/20" rows="4"></textarea>
+            </div>
+            <button class="w-full artisan-gradient text-on-primary py-4 rounded-xl font-bold hover:scale-[1.02] transition-transform">
+              Send Message
+            </button>
+          </form>
+        </div>
+        <div>
+          <div class="rounded-xl overflow-hidden h-80 mb-8 grayscale hover:grayscale-0 transition-all duration-700 shadow-lg">
+            <img
+              alt="Map"
+              class="w-full h-full object-cover"
+              data-alt="Stylized vintage map view of a quaint neighborhood intersection where a bakery is located."
+              data-location="Paris"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGjm2SHxCR_ecg6KhWQylNDLYw5ctf0rQ9-ma__hFTWLdIcFxjTYGLUkW-M_b-Krbf_T3ecTcexmoWLylfLdGDL4Kn27Tylh44mv5GXSvvBME7TblbLkoBdeRM1dtxbJbfAHRhDW431GbsdqrLqatXPM2wJHH0oGRwR1YzuRYoclHHPGVFSptxB7bN6is3XkF5CLHeUxKoSM88OHF5o2ZOTT6d-NX5d4syeNKXFgKaL6UaP8JJxQU4yCMSpZy_kxHiV4OHkj3h8pbk"
+            />
+          </div>
+          <div class="space-y-6">
+            <div class="flex items-start">
+              <span class="material-symbols-outlined text-primary mr-4">location_on</span>
+              <div>
+                <h4 class="font-bold">The Artisanal Hearth</h4>
+                <p class="text-on-surface-variant">123 Rye Boulevard, Flour District<br />Old Town, VT 05401</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <span class="material-symbols-outlined text-primary mr-4">schedule</span>
+              <div>
+                <h4 class="font-bold">Opening Hours</h4>
+                <p class="text-on-surface-variant">Tues – Sat: 07:00 AM — 04:00 PM<br />Sun: 08:00 AM — 01:00 PM<br />Mon: Closed for Souring</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- FAQ -->
+    <section class="py-24 max-w-4xl mx-auto px-8">
+      <h2 class="font-headline text-4xl text-center mb-16">Common Curiosities</h2>
+      <div class="space-y-8">
+        <details class="group bg-surface-container rounded-xl p-6 cursor-pointer" open="">
+          <summary class="flex justify-between items-center font-headline text-xl list-none">
+            Do you offer gluten-free sourdough?
+            <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+          </summary>
+          <p class="mt-4 font-body text-on-surface-variant leading-relaxed">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+            minim veniam.
+          </p>
+        </details>
+        <details class="group bg-surface-container rounded-xl p-6 cursor-pointer">
+          <summary class="flex justify-between items-center font-headline text-xl list-none">
+            How should I store my bread at home?
+            <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+          </summary>
+          <p class="mt-4 font-body text-on-surface-variant leading-relaxed">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </details>
+        <details class="group bg-surface-container rounded-xl p-6 cursor-pointer">
+          <summary class="flex justify-between items-center font-headline text-xl list-none">
+            Do you take wholesale orders for restaurants?
+            <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+          </summary>
+          <p class="mt-4 font-body text-on-surface-variant leading-relaxed">
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </p>
+        </details>
+      </div>
+    </section>
+    <!-- LogoBanner -->
+    <section class="py-16 bg-surface-container-low border-y border-outline-variant/10">
+      <div class="max-w-7xl mx-auto px-8 flex flex-wrap justify-center items-center gap-16 opacity-50 grayscale">
+        <div class="text-xl font-headline italic">Local Grains Assoc.</div>
+        <div class="text-xl font-headline italic">Slow Food Org</div>
+        <div class="text-xl font-headline italic">The Baker's Guild</div>
+        <div class="text-xl font-headline italic">Organic Trust</div>
+        <div class="text-xl font-headline italic">Harvest Awards 2023</div>
+      </div>
+    </section>
+    <!-- CtaBanner -->
+    <section class="py-24 max-w-7xl mx-auto px-8">
+      <div class="bg-primary rounded-[2rem] overflow-hidden relative artisan-gradient shadow-2xl p-16 text-center">
+        <h2 class="font-headline italic text-4xl md:text-6xl text-on-primary mb-8">Warm ovens, fresh beginnings.</h2>
+        <p class="text-on-primary/80 font-body text-xl mb-12 max-w-2xl mx-auto">
+          We bake in small batches to ensure perfection. Join us tomorrow morning for the freshest crusts in the valley.
+        </p>
+        <button class="bg-surface text-primary px-12 py-5 rounded-xl text-lg font-bold hover:scale-105 transition-transform shadow-lg">
+          Visit us today
+        </button>
+        <div class="absolute top-0 right-0 w-64 h-64 opacity-10 pointer-events-none translate-x-1/2 -translate-y-1/2">
+          <span class="material-symbols-outlined text-[200px]" style="font-variation-settings: &quot;wght&quot; 100">bakery_dining</span>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-stone-100 w-full pt-16 pb-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 max-w-7xl mx-auto">
+        <div>
+          <div class="text-xl font-serif italic text-orange-900 mb-6">The Artisanal Hearth</div>
+          <p class="text-stone-500 font-sans text-sm">
+            Honoring the ancient traditions of baking through patient fermentation and locally sourced organic grains.
+          </p>
+        </div>
+        <div>
+          <h5 class="font-bold text-orange-900 mb-6">Shop</h5>
+          <ul class="space-y-4 text-stone-500 text-sm">
+            <li><a class="hover:text-orange-700 hover:underline decoration-orange-300 transition-colors" href="#">Our Breads</a></li>
+            <li><a class="hover:text-orange-700 hover:underline decoration-orange-300 transition-colors" href="#">Pastries</a></li>
+            <li><a class="hover:text-orange-700 hover:underline decoration-orange-300 transition-colors" href="#">Subscriptions</a></li>
+            <li><a class="hover:text-orange-700 hover:underline decoration-orange-300 transition-colors" href="#">Gifts</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="font-bold text-orange-900 mb-6">Explore</h5>
+          <ul class="space-y-4 text-stone-500 text-sm">
+            <li><a class="hover:text-orange-700 hover:underline decoration-orange-300 transition-colors" href="#">Process</a></li>
+            <li><a class="hover:text-orange-700 hover:underline decoration-orange-300 transition-colors" href="#">Sourcing</a></li>
+            <li><a class="hover:text-orange-700 hover:underline decoration-orange-300 transition-colors" href="#">Wholesale</a></li>
+            <li><a class="hover:text-orange-700 hover:underline decoration-orange-300 transition-colors" href="#">Careers</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="font-bold text-orange-900 mb-6">Legal</h5>
+          <ul class="space-y-4 text-stone-500 text-sm">
+            <li><a class="hover:text-orange-700 hover:underline decoration-orange-300 transition-colors" href="#">Privacy Policy</a></li>
+            <li><a class="hover:text-orange-700 hover:underline decoration-orange-300 transition-colors" href="#">Terms of Service</a></li>
+            <li><a class="hover:text-orange-700 hover:underline decoration-orange-300 transition-colors" href="#">Allergens</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-16 pt-8 border-t border-stone-200 px-8 max-w-7xl mx-auto text-center text-stone-500 text-xs">
+        © 2024 The Artisanal Hearth. Slow-fermented &amp; Stone-ground.
+      </div>
+    </footer>
+  </body>
+</html>

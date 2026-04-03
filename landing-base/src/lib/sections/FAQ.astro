@@ -1,0 +1,67 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Item {
+  pregunta: string;
+  respuesta: string;
+}
+
+interface Props {
+  titulo: string;
+  items: Item[];
+}
+
+const { titulo, items } = Astro.props;
+
+if (!items || items.length === 0) return;
+---
+
+<section class="py-24 md:py-32 bg-gray-50" id="faq">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12 md:mb-16">
+      <h2 class="max-w-2xl mx-auto text-3xl md:text-4xl font-bold text-gray-900">{titulo}</h2>
+    </div>
+
+    <div class="max-w-3xl mx-auto space-y-4">
+      {items.map((item, index) => (
+        <details class="group bg-white rounded-lg shadow-sm border border-gray-100 open:ring-2 open:ring-blue-600/20 transition-all duration-300">
+          <summary class="flex items-center justify-between cursor-pointer p-6 font-semibold text-gray-900 list-none text-lg">
+            {item.pregunta}
+            <span class="ml-6 flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full border border-gray-200 group-open:border-blue-600 group-open:bg-blue-600 group-open:text-white transition-colors duration-300">
+              <Icon name="lucide:chevron-down" class="w-5 h-5 transition-transform duration-300 group-open:-rotate-180" />
+            </span>
+          </summary>
+          <div class="px-6 pb-6 text-gray-600 leading-relaxed group-open:animate-fadeIn">
+            {item.respuesta}
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Ocultar el marcador nativo del details */
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+<script>
+  // Script opcional para cerrar los otros `<details>` (accordion behavior simple)
+  const details = document.querySelectorAll('details');
+  details.forEach((targetDetail) => {
+    targetDetail.addEventListener('click', () => {
+      details.forEach((detail) => {
+        if (detail !== targetDetail) {
+          detail.removeAttribute('open');
+        }
+      });
+    });
+  });
+</script>

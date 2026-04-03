@@ -1,0 +1,32 @@
+---
+import { empresa } from "../data/empresa.js";
+import { Icon } from 'astro-icon/components';
+
+let link = "";
+if (empresa.contacto?.whatsapp) {
+  const phone = empresa.contacto.whatsapp.replace(/\D/g, "");
+  const text = encodeURIComponent(`Hola, quisiera más información sobre ${empresa.nombre}`);
+  link = `https://wa.me/${phone}?text=${text}`;
+}
+---
+
+{empresa.contacto?.whatsapp && (
+  <a 
+    href={link}
+    target="_blank" 
+    rel="noopener noreferrer"
+    aria-label="Contactar por WhatsApp"
+    class="fixed bottom-6 right-6 z-40 flex items-center justify-center w-14 h-14 bg-[#25d366] text-white rounded-full shadow-lg hover:scale-110 transition-transform hover:shadow-xl hover:bg-[#1ebd5b]"
+    style="animation: pulse 3s infinite;"
+  >
+    <Icon name="lucide:message-circle" class="w-7 h-7" />
+  </a>
+)}
+
+<style>
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+  70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+</style>

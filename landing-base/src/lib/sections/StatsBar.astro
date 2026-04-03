@@ -1,0 +1,52 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Item {
+  valor: string;
+  label: string;
+  icono?: string;
+}
+
+interface Props {
+  items: Item[];
+  fondo?: "primario" | "oscuro" | "claro";
+}
+
+const { items, fondo = "primario" } = Astro.props;
+
+if (!items || items.length === 0) return;
+
+const bgClasses = {
+  "primario": "bg-blue-600 text-white",
+  "oscuro": "bg-gray-900 text-white",
+  "claro": "bg-gray-100 text-gray-900",
+};
+
+const textCls = fondo === "claro" ? "text-blue-600" : "text-white";
+const labelCls = fondo === "claro" ? "text-gray-600" : "text-gray-300";
+const iconBg = fondo === "claro" ? "bg-white" : "bg-white/10";
+---
+
+<section class={`py-20 md:py-28 w-full ${bgClasses[fondo]}`}>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center divide-x-0 md:divide-x divide-white/20">
+      
+      {items.map(item => (
+        <div class="flex flex-col items-center justify-center space-y-2">
+          {item.icono && (
+            <div class={`w-12 h-12 rounded-full flex items-center justify-center mb-2 ${iconBg}`}>
+              <Icon name={`lucide:${item.icono}`} class="w-6 h-6" />
+            </div>
+          )}
+          <span class={`text-4xl md:text-5xl font-bold tracking-tight ${textCls}`}>
+            {item.valor}
+          </span>
+          <span class={`text-sm md:text-base font-medium tracking-wide uppercase ${labelCls}`}>
+            {item.label}
+          </span>
+        </div>
+      ))}
+      
+    </div>
+  </div>
+</section>

@@ -1,0 +1,79 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Plan {
+  nombre: string;
+  precio: string;
+  periodo?: string;
+  descripcion?: string;
+  caracteristicas: string[];
+  destacado: boolean;
+  cta: { texto: string; enlace: string };
+}
+
+interface Props {
+  titulo: string;
+  subtitulo?: string;
+  items: Plan[];
+}
+
+const { titulo, subtitulo, items } = Astro.props;
+
+if (!items || items.length === 0) return;
+---
+
+<section class="py-24 md:py-32 bg-gray-50" id="precios">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="max-w-2xl mx-auto text-3xl md:text-4xl font-bold text-gray-900 mb-4">{titulo}</h2>
+      {subtitulo && <p class="max-w-2xl mx-auto text-lg text-gray-600">{subtitulo}</p>}
+    </div>
+
+    <div class="flex flex-col lg:flex-row flex-wrap justify-center gap-8 items-center lg:items-stretch">
+      {items.map(plan => (
+        <div class={`relative flex flex-col w-full max-w-sm rounded-2xl bg-white focus:outline-none focus-within:ring-2 focus-within:ring-blue-600 shadow-md flex-1 min-w-[300px] border ${plan.destacado ? 'border-primary ring-2 ring-primary scale-100 lg:scale-105 shadow-xl z-10' : 'border-gray-200'}`}>
+          
+          {plan.destacado && (
+            <div class="absolute top-0 inset-x-0 flex justify-center -translate-y-1/2">
+              <span class="bg-blue-600 text-white text-sm font-bold uppercase tracking-wide py-1 px-4 rounded-full">
+                Más Popular
+              </span>
+            </div>
+          )}
+
+          <div class="p-8 pb-0">
+            <h3 class="text-2xl font-semibold text-gray-900">{plan.nombre}</h3>
+            {plan.descripcion && <p class="text-sm text-gray-500 mt-2">{plan.descripcion}</p>}
+            
+            <div class="mt-6 flex items-baseline gap-1">
+              <span class="text-5xl font-extrabold text-gray-900">{plan.precio}</span>
+              {plan.periodo && <span class="text-lg text-gray-500 font-medium">/{plan.periodo}</span>}
+            </div>
+          </div>
+
+          <div class="flex-1 flex flex-col justify-between p-8 pt-0 mt-8">
+            <ul class="space-y-4 mb-8">
+              {plan.caracteristicas.map(feat => (
+                <li class="flex items-start gap-3">
+                  <Icon name="lucide:check" class="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
+                  <span class="text-gray-600">{feat}</span>
+                </li>
+              ))}
+            </ul>
+
+            <a 
+              href={plan.cta.enlace}
+              class={`block w-full text-center py-4 px-6 rounded-lg font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 ${
+                plan.destacado 
+                  ? "bg-blue-600 text-white hover:bg-blue-700 shadow-md focus:ring-blue-600" 
+                  : "bg-blue-50 text-blue-700 hover:bg-blue-100 focus:ring-blue-500"
+              }`}
+            >
+              {plan.cta.texto}
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

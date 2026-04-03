@@ -1,0 +1,62 @@
+---
+interface Prop {
+  titulo?: string;
+  logos: { imagen: string; alt: string }[];
+  estilo?: "estatico" | "scroll-infinito";
+}
+
+const { titulo, logos, estilo = "estatico" } = Astro.props;
+
+if (!logos || logos.length === 0) return;
+---
+
+<section class="py-12 bg-white border-y border-gray-100 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    {titulo && (
+      <div class="text-center mb-10">
+        <h3 class="text-sm font-bold tracking-widest uppercase text-gray-400">{titulo}</h3>
+      </div>
+    )}
+
+    {estilo === "estatico" ? (
+      <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60">
+        {logos.map(logo => (
+          <img src={logo.imagen} alt={logo.alt} class="h-8 md:h-12 max-w-[150px] object-contain grayscale hover:grayscale-0 transition-all duration-300" loading="lazy" />
+        ))}
+      </div>
+    ) : (
+      <div class="relative w-full flex align-center mt-8">
+         <div class="marquee-scroller flex min-w-full space-x-16 opacity-60 px-8">
+           {logos.map(logo => (
+             <img src={logo.imagen} alt={logo.alt} class="h-8 md:h-12 w-auto max-w-[150px] object-contain grayscale hover:grayscale-0 transition-all duration-300" loading="lazy" />
+           ))}
+           <!-- Duplicamos para el loop fluido en CSS básico -->
+           {logos.map(logo => (
+             <img src={logo.imagen} alt={logo.alt} class="h-8 md:h-12 w-auto max-w-[150px] object-contain grayscale hover:grayscale-0 transition-all duration-300" loading="lazy" />
+           ))}
+         </div>
+      </div>
+    )}
+
+  </div>
+</section>
+
+<style>
+.marquee-scroller {
+  animation: scroll-x 25s linear infinite;
+}
+
+@keyframes scroll-x {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-scroller {
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+</style>

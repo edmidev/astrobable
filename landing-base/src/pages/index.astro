@@ -1,0 +1,114 @@
+---
+import Layout from "./Layout.astro";
+import Navbar from "../lib/layout/Navbar.astro";
+import Footer from "../lib/layout/Footer.astro";
+import WhatsAppButton from "../lib/layout/WhatsAppButton.astro";
+import HeroBanner from "../lib/sections/HeroBanner.astro";
+import CardGrid from "../lib/sections/CardGrid.astro";
+
+import TextBlock from "../lib/sections/TextBlock.astro";
+import FeatureList from "../lib/sections/FeatureList.astro";
+import StatsBar from "../lib/sections/StatsBar.astro";
+import Testimonials from "../lib/sections/Testimonials.astro";
+import PricingTable from "../lib/sections/PricingTable.astro";
+import FAQ from "../lib/sections/FAQ.astro";
+import LogoBanner from "../lib/sections/LogoBanner.astro";
+import Gallery from "../lib/sections/Gallery.astro";
+import ContactForm from "../lib/sections/ContactForm.astro";
+import MapSection from "../lib/sections/MapSection.astro";
+import CtaBanner from "../lib/sections/CtaBanner.astro";
+
+import { empresa } from "../lib/data/empresa.js";
+---
+
+<Layout>
+  <Navbar />
+  
+  <main id="main-content">
+    <HeroBanner 
+      titulo={empresa.nombre}
+      subtitulo={empresa.slogan}
+      cta={empresa.cta}
+      estilo="gradiente"
+    />
+
+    <LogoBanner 
+      titulo="Trabajamos con las mejores marcas"
+      logos={empresa.aliados}
+      estilo="scroll-infinito"
+    />
+    
+    <StatsBar 
+      items={empresa.estadisticas}
+      fondo="oscuro"
+    />
+
+    <TextBlock 
+      titulo={empresa.sobreNosotros.titulo}
+      contenido={empresa.sobreNosotros.texto}
+      layout="texto-imagen"
+    />
+
+    <CardGrid 
+      titulo="Nuestros Servicios"
+      subtitulo="Explora todo lo que podemos hacer por vos"
+      items={empresa.servicios}
+      columnas={3}
+      estilo="con-imagen"
+    />
+    
+    <FeatureList 
+      titulo="¿Por qué elegirnos?"
+      items={[
+        { titulo: "Experiencia", descripcion: "Años de trayectoria comprobada.", icono: "shield-check" },
+        { titulo: "Soporte", descripcion: "Atención personalizada 24/7.", icono: "headphones" },
+        { titulo: "Calidad", descripcion: "Los mejores materiales garantizados.", icono: "award" }
+      ]}
+      layout="grid"
+    />
+
+    <Gallery 
+      titulo="Conocé nuestro trabajo"
+      items={empresa.galeria}
+      estilo="grid"
+      columnas={4}
+    />
+
+    <Testimonials 
+      titulo="Lo que dicen nuestros clientes"
+      items={empresa.testimonios}
+      layout="grid"
+    />
+
+    <PricingTable 
+      titulo="Nuestros Planes"
+      subtitulo="Encontrá el paquete ideal para vos"
+      items={empresa.planes}
+    />
+
+    <FAQ 
+      titulo="Preguntas Frecuentes"
+      items={empresa.preguntas}
+    />
+
+    <ContactForm 
+      info={empresa.contacto}
+      layout="split"
+    />
+
+    <MapSection 
+      embedUrl={empresa.contacto.googleMapsEmbed}
+    />
+
+    <CtaBanner 
+      titulo="¿Listo para dar el siguiente paso?"
+      subtitulo="Contactanos hoy mismo y empecemos a trabajar en tu proyecto."
+      cta={{ texto: "Empezar ya", enlace: "#contacto" }}
+      fondo="primario"
+    />
+
+  </main>
+
+  <WhatsAppButton />
+  <Footer />
+</Layout>

@@ -1,0 +1,628 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Horizon Explorer | Curated Luxury Travel</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-container": "#a5bdff",
+              "inverse-surface": "#2e3037",
+              "on-tertiary-container": "#ffac66",
+              background: "#faf8ff",
+              "on-secondary-fixed": "#00201d",
+              "on-secondary-fixed-variant": "#005049",
+              "on-primary": "#ffffff",
+              "on-tertiary": "#ffffff",
+              "surface-variant": "#e2e2eb",
+              "on-background": "#191b22",
+              "on-surface-variant": "#434653",
+              "on-tertiary-fixed-variant": "#6e3900",
+              tertiary: "#562c00",
+              "secondary-fixed-dim": "#3adccc",
+              "primary-fixed-dim": "#b1c5ff",
+              "primary-fixed": "#dae2ff",
+              secondary: "#006a62",
+              "on-surface": "#191b22",
+              "tertiary-fixed-dim": "#ffb77d",
+              outline: "#737784",
+              error: "#ba1a1a",
+              "on-primary-fixed": "#001946",
+              "surface-dim": "#d9d9e2",
+              "secondary-container": "#5ef6e6",
+              "outline-variant": "#c3c6d5",
+              "inverse-primary": "#b1c5ff",
+              "on-primary-fixed-variant": "#00419e",
+              "on-tertiary-fixed": "#2f1500",
+              "surface-container-highest": "#e2e2eb",
+              surface: "#faf8ff",
+              primary: "#00327d",
+              "secondary-fixed": "#61f9e9",
+              "surface-container-high": "#e7e7f0",
+              "on-error": "#ffffff",
+              "error-container": "#ffdad6",
+              "tertiary-fixed": "#ffdcc3",
+              "on-error-container": "#93000a",
+              "on-secondary-container": "#006f66",
+              "on-secondary": "#ffffff",
+              "surface-container-lowest": "#ffffff",
+              "surface-bright": "#faf8ff",
+              "tertiary-container": "#783f00",
+              "surface-container-low": "#f3f3fc",
+              "primary-container": "#0047ab",
+              "surface-tint": "#2559bd",
+              "inverse-on-surface": "#f0f0f9",
+              "surface-container": "#ededf6",
+            },
+            fontFamily: {
+              headline: ["Noto Serif"],
+              body: ["Plus Jakarta Sans"],
+              label: ["Plus Jakarta Sans"],
+            },
+            borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "1.5rem", full: "9999px" },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "Noto Serif", serif;
+      }
+      .glass-effect {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(20px);
+      }
+    </style>
+  </head>
+  <body class="bg-background text-on-background">
+    <!-- TopAppBar -->
+    <nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm">
+      <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+        <span class="text-2xl font-bold font-serif text-blue-900 dark:text-blue-100">Horizon Explorer</span>
+        <div class="hidden md:flex items-center space-gap-8 gap-x-8">
+          <a class="text-blue-700 font-bold border-b-2 border-blue-600 transition-colors" href="#">Destinations</a>
+          <a class="text-slate-600 font-medium hover:text-blue-600 transition-colors" href="#">Experiences</a>
+          <a class="text-slate-600 font-medium hover:text-blue-600 transition-colors" href="#">Journals</a>
+          <a class="text-slate-600 font-medium hover:text-blue-600 transition-colors" href="#">About</a>
+        </div>
+        <button class="bg-primary text-on-primary px-6 py-2 rounded-full font-bold hover:scale-95 transition-all">Book a Trip</button>
+      </div>
+    </nav>
+    <main>
+      <!-- 1. HeroBanner -->
+      <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+          <img
+            class="w-full h-full object-cover"
+            data-alt="Breathtaking aerial view of a crystal clear turquoise lagoon in French Polynesia with white sand beaches and lush green palms"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCD-g6Iu_oVIanDbb_zAO9I1vGtXLoYOCrpJhf04pSKy2QShHBJdj-ZfGF_gQwTd0_v-FPNSnG9DE6YKuJdRi6fhhX8Y_WdTtlNB5MYDuxUPLG1BesUo19pWtWXLfDxHiio8BA7e5vmLoYGpnrBYtmIMoFTeUi7BYTs8IcfbZKQxDldpOIGtWPORyhyytOEkIb24BA0nGnRjA9ewZJyrgmVwjMizEhNsArj7vE0ajEdK_tdVuJC0eTRvuSTQjRtvnTUUj-8f-gHYQ"
+          />
+          <div class="absolute inset-0 bg-gradient-to-b from-primary/40 to-primary/80"></div>
+        </div>
+        <div class="relative z-10 text-center px-6 max-w-4xl">
+          <h1 class="text-display-lg text-6xl md:text-8xl text-white mb-8 font-headline leading-tight">The Horizon Awaits Your Story</h1>
+          <p class="text-xl text-primary-fixed font-body mb-10 max-w-2xl mx-auto">
+            Experience curated luxury travel designed for the fluid soul. Escape the ordinary and embrace the extraordinary.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <button class="bg-secondary text-on-secondary px-8 py-4 rounded-full text-lg font-bold hover:bg-secondary/90 transition-all">
+              Explore Destinations
+            </button>
+            <button class="glass-effect text-primary px-8 py-4 rounded-full text-lg font-bold transition-all">View Experiences</button>
+          </div>
+        </div>
+      </section>
+      <!-- 2. HeroSplit -->
+      <section class="py-24 px-8 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+          <div class="order-2 md:order-1">
+            <h2 class="text-4xl md:text-5xl font-headline text-primary mb-6 leading-tight">Curated Journeys Beyond the Map</h2>
+            <p class="text-lg text-on-surface-variant mb-8 leading-relaxed">
+              We believe travel should be as unique as the traveler. Our experts hand-pick every detail, from secluded villas in Tuscany to private
+              expeditions in the Antarctic, ensuring your journey is seamless and soul-stirring.
+            </p>
+            <ul class="space-y-4">
+              <li class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-secondary" style="font-variation-settings: &quot;FILL&quot; 1">verified</span>
+                <span class="font-bold text-on-surface">Vetted Luxury Accommodations</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-secondary" style="font-variation-settings: &quot;FILL&quot; 1">verified</span>
+                <span class="font-bold text-on-surface">24/7 Personal Concierge</span>
+              </li>
+            </ul>
+          </div>
+          <div class="order-1 md:order-2 relative">
+            <div class="absolute -top-6 -left-6 w-32 h-32 bg-secondary-container rounded-xl -z-10"></div>
+            <img
+              class="rounded-xl shadow-2xl w-full aspect-[4/5] object-cover"
+              data-alt="Professional mountain guide pointing at snowy peaks for a traveler in high-end hiking gear under a brilliant blue sky"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVgyKwSlsjwTQJddOEZXWS3CY67DzLpZENf9JsJJmHxzW8XnatNzO1afZSNVhsfKrKSBOgWCmrKjYEvvEJ8T5GBlSFh7C_3zEjh6PbfYYxjThqjECHM9JGqbxp5THSNSbnk-Dez8QtxJhcj7kiGjcF61_AfMhq9taJNZoRDCDt-h6Lj11yTM5f8tKDc_09ruFj0sAR5mQqwinvR3Kngecgd-g5XURFTuqR64G0Jyff9Mt6IMeoVdE3lRAY-AE5vWh-2fTnfKR0ig"
+            />
+          </div>
+        </div>
+      </section>
+      <!-- 3. CardGrid -->
+      <section class="py-24 bg-surface-container-low">
+        <div class="max-w-7xl mx-auto px-8">
+          <div class="mb-16">
+            <h2 class="text-4xl font-headline text-primary">Top Destinations</h2>
+            <p class="text-on-surface-variant mt-2">Hand-picked escapes for the coming season.</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Card 1 -->
+            <div class="group bg-surface-container-lowest p-5 rounded-xl hover:-translate-y-2 transition-all duration-300">
+              <img
+                class="w-full h-72 object-cover rounded-lg mb-6"
+                data-alt="Sunset over the whitewashed domes and blue roofs of Oia, Santorini overlooking the Aegean Sea"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnW6s7RFqPty4uQFudkHQS2vw6xhVH79S9m6kTCteaCe0amzyWroc54LvVTTxR8AZx7U2f9dyoy8wMaUtoC0wLlN8JxKTLR5-cz-6II4NaF1QZQOdeAkYllJr_maezr-nvbBOWSjYeMOMlxB8ect_L7nZZnDRiMKR9HYjXvD6KeYNoOloDyp-Hkd4tEXfi9_8Np-1rlewvR70-w0sXAEctRcSw5gXd_xZUIQSTuEgyoO7enWjf-RK5bNFQrd0B4Wp9_NJpMnOMsw"
+              />
+              <div class="px-2">
+                <h3 class="text-2xl font-headline text-on-surface mb-2">Santorini, Greece</h3>
+                <p class="text-on-surface-variant text-sm mb-6">Azure waters meet pristine architecture in the heart of the Cyclades.</p>
+                <span class="text-secondary font-bold text-lg">From $3,200</span>
+              </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="group bg-surface-container-lowest p-5 rounded-xl hover:-translate-y-2 transition-all duration-300">
+              <img
+                class="w-full h-72 object-cover rounded-lg mb-6"
+                data-alt="Traditional Kyoto street with blooming cherry blossoms and old wooden Machiya houses at twilight"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8Zul80gT-KpQsBjVbyRvn7buHc5sl6m-0SMmdId_2_OOXGjXVSL3cuw3pJiRx4_R2BLlUN0I-F-M7YLBVi4GvBETF6tfF0ALR9TK-iRB_-Z7EYsOM-50LPn5WdCEkv3kG8bJr0X3MKk8K2WtOtJg14ldX6kKOIIk055KrOEY5dWF73sfVVzplM_co2-vbptPk2ZQN5ohtSZOmGSfND09f3HcGfX5wmizy4FdVwPKWfN4vmgLLWpC-u8ZhBV_M6rnproRq8Md3jA"
+              />
+              <div class="px-2">
+                <h3 class="text-2xl font-headline text-on-surface mb-2">Kyoto, Japan</h3>
+                <p class="text-on-surface-variant text-sm mb-6">Where ancient traditions harmonize with the rhythm of modern serenity.</p>
+                <span class="text-secondary font-bold text-lg">From $4,500</span>
+              </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="group bg-surface-container-lowest p-5 rounded-xl hover:-translate-y-2 transition-all duration-300">
+              <img
+                class="w-full h-72 object-cover rounded-lg mb-6"
+                data-alt="Golden hour light hitting the red rocks of Sedona valley with sparse desert vegetation"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCE_ytRNC1R5hYbBeY8jwPiWHZ9iJoPa4m2cThQxN-0eN7V5NiezvxFgCUNvdr1IwhFSh5c1PVrWMfpLI4mUFbjoXgybw0IWCOXEb2rQA_hOTx7dHGfTuogFQufwNiZL_ynyfQJTgePVIXBPNI0VrP2qtP-UX4GyJvUoXMAClCahv4vfNTFcGMaV1QhdX8Z2C1tTIQTSaM39XIPl4HAWFc2-Oyvx0Uj45eS2wqTEHHUlU2mxxnzLYctbUGWyEcYTxUBKKM-3gKvSQ"
+              />
+              <div class="px-2">
+                <h3 class="text-2xl font-headline text-on-surface mb-2">Sedona, USA</h3>
+                <p class="text-on-surface-variant text-sm mb-6">Majestic red rock formations and spiritual rejuvenation under vast skies.</p>
+                <span class="text-secondary font-bold text-lg">From $2,100</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- 4. FeatureList -->
+      <section class="py-24 px-8 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+          <div class="max-w-xl">
+            <h2 class="text-4xl font-headline text-primary mb-4">Unrivaled Travel Services</h2>
+            <p class="text-on-surface-variant">We handle the logistics so you can focus on the discovery.</p>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+          <div class="flex flex-col gap-4">
+            <span class="material-symbols-outlined text-4xl text-primary" data-icon="flight">flight</span>
+            <h4 class="text-xl font-bold font-headline">Private Aviation</h4>
+            <p class="text-sm text-on-surface-variant leading-relaxed">
+              Direct access to a fleet of luxury jets for seamless, private travel across the globe.
+            </p>
+          </div>
+          <div class="flex flex-col gap-4">
+            <span class="material-symbols-outlined text-4xl text-primary" data-icon="hotel">hotel</span>
+            <h4 class="text-xl font-bold font-headline">Boutique Stays</h4>
+            <p class="text-sm text-on-surface-variant leading-relaxed">
+              Exclusive partnerships with the world's most unique and private villas and resorts.
+            </p>
+          </div>
+          <div class="flex flex-col gap-4">
+            <span class="material-symbols-outlined text-4xl text-primary" data-icon="explore">explore</span>
+            <h4 class="text-xl font-bold font-headline">Guided Tours</h4>
+            <p class="text-sm text-on-surface-variant leading-relaxed">
+              Expert local guides providing deep cultural insights and off-the-beaten-path access.
+            </p>
+          </div>
+          <div class="flex flex-col gap-4">
+            <span class="material-symbols-outlined text-4xl text-primary" data-icon="support_agent">support_agent</span>
+            <h4 class="text-xl font-bold font-headline">Global Support</h4>
+            <p class="text-sm text-on-surface-variant leading-relaxed">
+              Our team is available 24/7 to adjust plans or handle any travel needs on the fly.
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- 5. TextBlock (About Us) -->
+      <section class="py-24 bg-primary text-on-primary">
+        <div class="max-w-4xl mx-auto px-8 text-center">
+          <span class="uppercase tracking-widest text-sm font-bold opacity-60 mb-6 block">Our Mission</span>
+          <h2 class="text-4xl md:text-5xl font-headline mb-8 italic">
+            "We exist to facilitate the pursuit of wonder, curating moments that transform a simple trip into a lifelong memory."
+          </h2>
+          <div class="h-1 w-24 bg-secondary mx-auto mb-8"></div>
+          <p class="text-lg opacity-80 font-body leading-loose">
+            Horizon Explorer was founded on the belief that travel is the ultimate form of self-discovery. Our team of global curators seeks out the
+            hidden, the authentic, and the sublime, providing you with a fluid, effortless path to the world's most remarkable experiences.
+          </p>
+        </div>
+      </section>
+      <!-- 6. Gallery (Bento Style) -->
+      <section class="py-24 px-8 max-w-7xl mx-auto">
+        <div class="mb-12">
+          <h2 class="text-4xl font-headline text-primary">Travel Journal</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 h-[800px]">
+          <div class="md:col-span-2 md:row-span-2">
+            <img
+              class="w-full h-full object-cover rounded-xl"
+              data-alt="High-angle shot of a woman in a flowing dress walking through a Moroccan riad with intricate tile patterns"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCycOFeHbmiaiMgVdCBgMG-6t0Xe0pfJ4sI0H-01nihCe9eRYC_YhTKK_k64nKgjKcmsRumyhgEofCZnqDrHH1PEfbqu79fqCHoKGEaVsgY-Vx9n719XbpiLbC4t95D9aTKUr1MmC6noz-WNrRKjX8cZ2uYNOjTQMUzhKykHMkrOQRjFIKDEkrcJBRtYsky8F4-QiNuWMlgAVujC5DHc_FowF0Ecu1mwM2-6Ff970wLVqecHJV0prFDce3sxO3A-zs5n-_TRU8ow"
+            />
+          </div>
+          <div class="md:col-span-1 md:row-span-1">
+            <img
+              class="w-full h-full object-cover rounded-xl"
+              data-alt="Close up of gourmet local seafood dish on a rustic wooden table overlooking the Amalfi coast"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnKRU6amY4kcAuwXK0r5EfuXeM8kvdUZTzIByRnvffVOy7OI8cJblSPeHkE9-dk2ypZZsYHz0OrKZVNkDIrHXZSfsr0k85A24g9BZFGUl56NkOxsObVPLGZXLctXhV26KiQ-uU5qIx-IDBwnzVSGKacNhbsrSJ00H4JXN3_04ZeRnKRlpXIVJFhSRDORZopKY1CxzpfF-n4Ty0uutgao5ocgFWpGhxGHsqqpO1tEbBt6-ecmvfRGJc70LCGRTOjTIbbmvJbQW_Kg"
+            />
+          </div>
+          <div class="md:col-span-1 md:row-span-2">
+            <img
+              class="w-full h-full object-cover rounded-xl"
+              data-alt="Serene mountain reflecting in a still alpine lake in the Swiss Alps at dawn"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWvQPiCEjJCGwEDEv7astr81JldJjlXR-QYQiIx2setFU3AIFkgBoah9XUnX5tga2wY9E6STEUW7WaIHPZgkmPzW-Bz7zd_aqTNO9dcnS1fahrSQqm5ChwHfUjgQMCiQ6zJbc7hhmMABEkwhD3eW9cAqBPlbBcqoMx8F67-jkJlIYdPZraoay2tlaXK99co2Z6g64mBWmUSSq-RgdJQvTcMcJphV8MWrnD7JTf87WYDx5D_SuF9IC1jGnRHxLTKj_dn4mDJdk5tQ"
+            />
+          </div>
+          <div class="md:col-span-1 md:row-span-1">
+            <img
+              class="w-full h-full object-cover rounded-xl"
+              data-alt="Detailed view of colorful hot air balloons rising over the unique rock formations of Cappadocia"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNKAVb3Y2-3i2cwNsoNDs-jKM6j33Pa976lUf0XGLDNb8229eaLo9wyhtj07css5jmuqUDurqtdG5DBl8RH5Cz3TiICc2iwuydcQQ5ZnmAtPZ1-OLQfYA0c9Zt2a_I8CsZ6SysWNOB9dSmg6-gWjKfKtWk_SQH2tl5b-b3rmHrtUbTnOhoa8vTLAfaHSA9bRr_G_g7wTT2PUs6KI0489lp08qbFQty_f8ZSbVqFvzHmQCLt1_3KW6ge2jSg2hXITC4dLBlozCWWA"
+            />
+          </div>
+        </div>
+      </section>
+      <!-- 7. Testimonials -->
+      <section class="py-24 bg-surface-container-low">
+        <div class="max-w-7xl mx-auto px-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div class="bg-surface-container-lowest p-12 rounded-xl shadow-sm">
+              <span class="material-symbols-outlined text-secondary text-5xl mb-6" data-icon="format_quote">format_quote</span>
+              <p class="text-xl font-body italic mb-8 text-on-surface">
+                "The attention to detail was beyond anything we've experienced. Horizon Explorer didn't just book a trip; they designed a narrative
+                that felt perfectly tuned to our tastes."
+              </p>
+              <div class="flex items-center gap-4">
+                <img
+                  class="w-14 h-14 rounded-full object-cover"
+                  data-alt="Portrait of a smiling professional woman with soft studio lighting"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDso4PZASKS9xwvCx4Mr1p2oLEUiOCgo3h64w_5flbn8ywTpErf0DPKpMzIxUrYgG4C2IRr-cuxfsXYPt2OigZ0eYq3rla3LqJOHwQZYN8HYuOkNzZ18__htLh8MkwMGsEXCbQn5hpDj3ZLhywORawaTaPHegYD5POqVgmWUc7jnjEl8PweGvpb4bcXgkL0vL0DHaIuQQKqhRX984k5veDAXjMe28IvSlg8QT-fOKTSl1vLqyrMj4-BMZ_8Gu5Z0C7JEnvJWdy9zQ"
+                />
+                <div>
+                  <h5 class="font-bold text-on-surface">Elena Rodriguez</h5>
+                  <p class="text-sm text-on-surface-variant">Cultural Enthusiast</p>
+                </div>
+              </div>
+            </div>
+            <div class="bg-surface-container-lowest p-12 rounded-xl shadow-sm">
+              <span class="material-symbols-outlined text-secondary text-5xl mb-6" data-icon="format_quote">format_quote</span>
+              <p class="text-xl font-body italic mb-8 text-on-surface">
+                "Every transition was seamless. From the private jet to the mountain lodge, we felt completely cared for. It truly was the journey of
+                a lifetime."
+              </p>
+              <div class="flex items-center gap-4">
+                <img
+                  class="w-14 h-14 rounded-full object-cover"
+                  data-alt="Portrait of a middle-aged man with a relaxed expression wearing a linen shirt"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuArhLpDohV_Z9lY2QKAN2mxfV1F3QiwO2CcNJ4PZK-US53-ybU8vx4gen6YjQhBQtbSi4zqdGZb_1FwBieIXuR8YyLtDqfBO9f5wxNYX67QFw5f_B_yk7mafbHIvNEE9AT6wICLac7Bhe0NxXBQcUsj6ScONsPcCtzpm3C1LV_tZjJlMDKRnz4Cq_I7hn233nn7c6Ces6IAjHrbgRywcIaSyKOI0jGlDvWFHWnjJyBzVyYsthAqV580TdkQOQbJu4L53OkZuHuwzA"
+                />
+                <div>
+                  <h5 class="font-bold text-on-surface">James Harrison</h5>
+                  <p class="text-sm text-on-surface-variant">Adventure Photographer</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- 8. StatsBar -->
+      <section class="py-16 bg-primary text-on-primary">
+        <div class="max-w-7xl mx-auto px-8 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div>
+            <div class="text-5xl font-headline font-bold mb-2">12k+</div>
+            <div class="text-sm uppercase tracking-widest opacity-60">Happy Clients</div>
+          </div>
+          <div>
+            <div class="text-5xl font-headline font-bold mb-2">85</div>
+            <div class="text-sm uppercase tracking-widest opacity-60">Destinations</div>
+          </div>
+          <div>
+            <div class="text-5xl font-headline font-bold mb-2">1.2k</div>
+            <div class="text-sm uppercase tracking-widest opacity-60">Tours Hosted</div>
+          </div>
+          <div>
+            <div class="text-5xl font-headline font-bold mb-2">15</div>
+            <div class="text-sm uppercase tracking-widest opacity-60">Design Awards</div>
+          </div>
+        </div>
+      </section>
+      <!-- 9. PricingTable -->
+      <section class="py-24 px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-headline text-primary mb-4">Expedition Packages</h2>
+          <p class="text-on-surface-variant">Choose the level of immersion that suits your spirit.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Essential -->
+          <div class="border border-outline-variant/30 rounded-xl p-8 flex flex-col">
+            <h3 class="text-2xl font-headline text-on-surface mb-2">The Essential</h3>
+            <div class="text-4xl font-bold text-primary mb-6">$3,500 <span class="text-sm text-on-surface-variant font-normal">/ person</span></div>
+            <ul class="space-y-4 mb-10 flex-grow">
+              <li class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span> Luxury Hotel Stays
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span> Select Cultural Tours
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span> Daily Breakfast
+              </li>
+              <li class="flex items-center gap-2 opacity-40">
+                <span class="material-symbols-outlined text-sm" data-icon="cancel">cancel</span> Private Aviation
+              </li>
+            </ul>
+            <button class="w-full py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-white transition-all">
+              Select Package
+            </button>
+          </div>
+          <!-- Signature (Popular) -->
+          <div class="bg-surface-container-highest rounded-xl p-8 flex flex-col relative overflow-hidden ring-2 ring-secondary">
+            <div class="absolute top-0 right-0 bg-secondary text-on-secondary px-4 py-1 text-xs font-bold uppercase tracking-widest rounded-bl-lg">
+              Most Popular
+            </div>
+            <h3 class="text-2xl font-headline text-on-surface mb-2">The Signature</h3>
+            <div class="text-4xl font-bold text-primary mb-6">$7,200 <span class="text-sm text-on-surface-variant font-normal">/ person</span></div>
+            <ul class="space-y-4 mb-10 flex-grow">
+              <li class="flex items-center gap-2">
+                <span
+                  class="material-symbols-outlined text-secondary text-sm"
+                  data-icon="check_circle"
+                  style="font-variation-settings: &quot;FILL&quot; 1"
+                  >check_circle</span
+                >
+                Private Villa Stays
+              </li>
+              <li class="flex items-center gap-2">
+                <span
+                  class="material-symbols-outlined text-secondary text-sm"
+                  data-icon="check_circle"
+                  style="font-variation-settings: &quot;FILL&quot; 1"
+                  >check_circle</span
+                >
+                All-Inclusive Fine Dining
+              </li>
+              <li class="flex items-center gap-2">
+                <span
+                  class="material-symbols-outlined text-secondary text-sm"
+                  data-icon="check_circle"
+                  style="font-variation-settings: &quot;FILL&quot; 1"
+                  >check_circle</span
+                >
+                Personal Concierge
+              </li>
+              <li class="flex items-center gap-2">
+                <span
+                  class="material-symbols-outlined text-secondary text-sm"
+                  data-icon="check_circle"
+                  style="font-variation-settings: &quot;FILL&quot; 1"
+                  >check_circle</span
+                >
+                Local Private Transport
+              </li>
+            </ul>
+            <button class="w-full py-3 rounded-full bg-primary text-on-primary font-bold hover:bg-primary-container transition-all">
+              Select Package
+            </button>
+          </div>
+          <!-- Elite -->
+          <div class="border border-outline-variant/30 rounded-xl p-8 flex flex-col">
+            <h3 class="text-2xl font-headline text-on-surface mb-2">The Elite</h3>
+            <div class="text-4xl font-bold text-primary mb-6">$15,000 <span class="text-sm text-on-surface-variant font-normal">/ person</span></div>
+            <ul class="space-y-4 mb-10 flex-grow">
+              <li class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span> Private Jet Access
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span> Ultra-Luxe Estates
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span> Exclusive Masterclasses
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span> Dedicated Photographer
+              </li>
+            </ul>
+            <button class="w-full py-3 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-white transition-all">
+              Select Package
+            </button>
+          </div>
+        </div>
+      </section>
+      <!-- 10. ContactForm & 11. MapSection -->
+      <section class="py-24 bg-surface-container-low">
+        <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-16">
+          <div>
+            <h2 class="text-4xl font-headline text-primary mb-4">Plan Your Escape</h2>
+            <p class="text-on-surface-variant mb-8">
+              Ready to begin your story? Leave your details and our lead curator will reach out within 24 hours.
+            </p>
+            <form class="space-y-6">
+              <div class="grid grid-cols-2 gap-4">
+                <input
+                  class="w-full bg-surface-container-lowest border-none rounded-lg p-4 focus:ring-2 focus:ring-secondary/20"
+                  placeholder="First Name"
+                  type="text"
+                />
+                <input
+                  class="w-full bg-surface-container-lowest border-none rounded-lg p-4 focus:ring-2 focus:ring-secondary/20"
+                  placeholder="Last Name"
+                  type="text"
+                />
+              </div>
+              <input
+                class="w-full bg-surface-container-lowest border-none rounded-lg p-4 focus:ring-2 focus:ring-secondary/20"
+                placeholder="Email Address"
+                type="email"
+              />
+              <select class="w-full bg-surface-container-lowest border-none rounded-lg p-4 focus:ring-2 focus:ring-secondary/20">
+                <option>Interested Destination</option>
+                <option>Europe</option>
+                <option>Asia</option>
+                <option>The Americas</option>
+                <option>Polar Regions</option>
+              </select>
+              <textarea
+                class="w-full bg-surface-container-lowest border-none rounded-lg p-4 focus:ring-2 focus:ring-secondary/20"
+                placeholder="Tell us about your dream trip..."
+                rows="4"
+              ></textarea>
+              <button class="bg-secondary text-on-secondary px-8 py-4 rounded-full font-bold w-full hover:bg-secondary/90 transition-all">
+                Submit Inquiry
+              </button>
+            </form>
+          </div>
+          <div class="flex flex-col gap-8">
+            <div class="h-full rounded-xl overflow-hidden shadow-lg min-h-[400px] relative">
+              <img
+                class="w-full h-full object-cover"
+                data-alt="Clean minimalist map graphic showing high-end district locations with subtle teal markers"
+                data-location="Zurich, Switzerland"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGVJxKDc_cpKNAJavvu8W8tLiG-WugDvLQiy-WTsBZ0rzGcHKPwnnA4GMstTogMgy3zUYLDuEd5oJVXOk0NlZno6RI7Alo2BsYwlUKJtSZbzJF-mMleGQLcgrksJpptj3tMMbSFMC92w6zq1rBc5Lp0i90YQ4gU4kjsiwrkjnVPS-6jF9qM2-J8adilKj_7zaf-GsY7_UWt8zPcJs38xmo2OWAW_KTSDjfc5fKOI8tFq6K4UyKtPMeXvxCZNwHOrI6MzQ1ufgZUw"
+              />
+              <div class="absolute bottom-6 left-6 right-6 glass-effect p-6 rounded-xl">
+                <h4 class="font-bold text-primary mb-1">Global Headquarters</h4>
+                <p class="text-sm text-on-surface-variant">Bahnhofstrasse 45, 8001 Zurich, Switzerland</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- 12. FAQ -->
+      <section class="py-24 px-8 max-w-4xl mx-auto">
+        <h2 class="text-4xl font-headline text-primary mb-12 text-center">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+          <div class="bg-surface-container p-6 rounded-xl">
+            <button class="flex justify-between items-center w-full text-left font-bold text-lg text-primary">
+              How early should I book my trip?
+              <span class="material-symbols-outlined">expand_more</span>
+            </button>
+            <div class="mt-4 text-on-surface-variant leading-relaxed">
+              For our most exclusive destinations and seasonal events (like Cherry Blossom season or Polar expeditions), we recommend booking 6-12
+              months in advance.
+            </div>
+          </div>
+          <div class="bg-surface-container p-6 rounded-xl">
+            <button class="flex justify-between items-center w-full text-left font-bold text-lg text-primary">
+              Do you provide travel insurance?
+              <span class="material-symbols-outlined">expand_more</span>
+            </button>
+            <div class="mt-4 text-on-surface-variant leading-relaxed">
+              Yes, every Horizon Explorer package includes comprehensive premium travel insurance tailored for luxury itineraries.
+            </div>
+          </div>
+          <div class="bg-surface-container p-6 rounded-xl">
+            <button class="flex justify-between items-center w-full text-left font-bold text-lg text-primary">
+              Can I customize an existing package?
+              <span class="material-symbols-outlined">expand_more</span>
+            </button>
+            <div class="mt-4 text-on-surface-variant leading-relaxed">
+              Absolutely. All of our listed packages are simply starting points. Your personal concierge will work with you to tailor every single
+              detail.
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- 13. LogoBanner -->
+      <section class="py-12 bg-white border-y border-surface-container">
+        <div class="max-w-7xl mx-auto px-8 flex flex-wrap justify-between items-center gap-8 opacity-40 grayscale">
+          <div class="flex items-center gap-2 font-bold text-2xl font-serif">Aura Air</div>
+          <div class="flex items-center gap-2 font-bold text-2xl font-serif">Belmondo</div>
+          <div class="flex items-center gap-2 font-bold text-2xl font-serif">Summit Hotels</div>
+          <div class="flex items-center gap-2 font-bold text-2xl font-serif">Azure Yachts</div>
+          <div class="flex items-center gap-2 font-bold text-2xl font-serif">Nomad Lodge</div>
+        </div>
+      </section>
+      <!-- 14. CtaBanner -->
+      <section class="relative py-32 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+          <img
+            class="w-full h-full object-cover"
+            data-alt="Vibrant orange sunset over a calm deep blue ocean horizon with soft grain texture"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlq1tfrYKD8X0pxupruq6E_pPMa72UgxarReRPcFSIeQ8DfdLY0vDqFCaemOICGarORjgMXKTt56Irw3CDGvaAhp1bi4L4KKJfNyKlZFyxEZT_4wNZDz3ReDMNOeG06CGmQc1SKfjvCGlpGmLnd2V6CrrzDlIQlkmvyeL-T4jL88fCtm_Cg-NrkCK7bWlUDRiai5l81RjZA58Fv1NRFGmPeoSzAKiCWt7Ep4qvaIr7zwvOXOwnqITSuPLHiduLk7w_RJ5CQrzerA"
+          />
+          <div class="absolute inset-0 bg-primary/80 mix-blend-multiply"></div>
+        </div>
+        <div class="relative z-10 max-w-4xl mx-auto px-8 text-center text-white">
+          <h2 class="text-5xl font-headline mb-8">Ready to define your next chapter?</h2>
+          <p class="text-xl opacity-80 mb-12">Join our inner circle for exclusive access to world-first expeditions and private retreat openings.</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <input
+              class="px-8 py-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-secondary min-w-[300px]"
+              placeholder="Enter your email"
+              type="email"
+            />
+            <button class="bg-secondary text-on-secondary px-10 py-4 rounded-full font-bold text-lg hover:scale-105 transition-all">
+              Start Your Journey
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-slate-50 dark:bg-slate-950 w-full py-12 px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6 max-w-7xl mx-auto">
+        <div class="flex flex-col gap-2">
+          <span class="font-serif text-xl font-bold text-blue-900 dark:text-blue-100">Horizon Explorer</span>
+          <p class="font-sans text-sm tracking-wide text-slate-500">© 2024 Horizon Explorer. Curated travel for the fluid soul.</p>
+        </div>
+        <div class="flex flex-wrap justify-center gap-6">
+          <a class="text-slate-500 text-sm hover:underline decoration-teal-500 underline-offset-4 transition-opacity" href="#">Privacy Policy</a>
+          <a class="text-slate-500 text-sm hover:underline decoration-teal-500 underline-offset-4 transition-opacity" href="#">Terms of Service</a>
+          <a class="text-slate-500 text-sm hover:underline decoration-teal-500 underline-offset-4 transition-opacity" href="#">Press Kit</a>
+          <a class="text-slate-500 text-sm hover:underline decoration-teal-500 underline-offset-4 transition-opacity" href="#"
+            >Sustainability Report</a
+          >
+          <a class="text-slate-500 text-sm hover:underline decoration-teal-500 underline-offset-4 transition-opacity" href="#">Contact Us</a>
+        </div>
+        <div class="flex gap-4">
+          <span class="material-symbols-outlined text-blue-900 cursor-pointer hover:text-secondary">public</span>
+          <span class="material-symbols-outlined text-blue-900 cursor-pointer hover:text-secondary">photo_camera</span>
+          <span class="material-symbols-outlined text-blue-900 cursor-pointer hover:text-secondary">movie</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

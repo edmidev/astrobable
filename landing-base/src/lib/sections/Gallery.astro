@@ -1,0 +1,71 @@
+---
+interface Props {
+  titulo?: string;
+  items: { imagen: string; alt: string; caption?: string }[];
+  columnas?: 2 | 3 | 4;
+  estilo?: "grid" | "masonry";
+}
+
+const { titulo, items, columnas = 3, estilo = "grid" } = Astro.props;
+
+if (!items || items.length === 0) return;
+
+const gridCols = {
+  2: "sm:grid-cols-2",
+  3: "sm:grid-cols-2 md:grid-cols-3",
+  4: "sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4",
+};
+---
+
+<section class="py-24 md:py-32 bg-white" id="galeria">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    {titulo && (
+      <div class="text-center mb-12 md:mb-16">
+        <h2 class="max-w-2xl mx-auto text-3xl md:text-4xl font-bold text-gray-900">{titulo}</h2>
+      </div>
+    )}
+
+    {estilo === "grid" && (
+      <div class={`grid grid-cols-1 ${gridCols[columnas]} gap-4`}>
+        {items.map(item => (
+          <div class="relative group aspect-square md:aspect-video lg:aspect-square overflow-hidden rounded-lg bg-gray-100">
+            <img 
+              src={item.imagen} 
+              alt={item.alt} 
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              loading="lazy" 
+            />
+            {item.caption && (
+              <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span class="text-white text-sm font-medium">{item.caption}</span>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    )}
+
+    {estilo === "masonry" && (
+      <!-- Implementación simplificada de masonry usando columnas CSS -->
+      <div class="columns-1 sm:columns-2 md:columns-3 gap-4 space-y-4">
+        {items.map(item => (
+          <div class="relative group break-inside-avoid overflow-hidden rounded-lg bg-gray-100 mb-4 inline-block w-full">
+            <img 
+              src={item.imagen} 
+              alt={item.alt} 
+              class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy" 
+            />
+            {item.caption && (
+              <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span class="text-white text-sm font-medium">{item.caption}</span>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    )}
+
+  </div>
+</section>

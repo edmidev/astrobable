@@ -1,0 +1,88 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Item {
+  titulo: string;
+  descripcion: string;
+  icono: string;
+}
+
+interface Props {
+  titulo: string;
+  subtitulo?: string;
+  items: Item[];
+  layout?: "grid" | "lista" | "alternado";
+}
+
+const { 
+  titulo, 
+  subtitulo, 
+  items, 
+  layout = "grid" 
+} = Astro.props;
+
+if (!items || items.length === 0) return;
+---
+
+<section class="py-24 md:py-32 bg-gray-50" id="caracteristicas">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center mb-12 md:mb-16">
+      <h2 class="max-w-2xl mx-auto text-3xl md:text-4xl font-bold text-gray-900 mb-4">{titulo}</h2>
+      {subtitulo && <p class="max-w-2xl mx-auto text-lg text-gray-600">{subtitulo}</p>}
+    </div>
+    
+    {layout === "grid" && (
+      <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+        {items.map(item => (
+          <div class="flex gap-4">
+            <div class="flex-shrink-0 mt-1">
+              <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600">
+                <Icon name={`lucide:${item.icono}`} class="w-6 h-6" />
+              </div>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">{item.titulo}</h3>
+              <p class="text-gray-600 leading-relaxed">{item.descripcion}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    )}
+
+    {layout === "lista" && (
+      <div class="max-w-3xl mx-auto space-y-8">
+        {items.map(item => (
+          <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex gap-6 items-center">
+            <div class="w-14 h-14 bg-blue-50 rounded-full flex items-center justify-center text-blue-600 flex-shrink-0">
+              <Icon name={`lucide:${item.icono}`} class="w-7 h-7" />
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-1">{item.titulo}</h3>
+              <p class="text-gray-600">{item.descripcion}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    )}
+
+    {layout === "alternado" && (
+      <div class="max-w-4xl mx-auto space-y-16">
+        {items.map((item, index) => (
+          <div class={`flex flex-col md:flex-row items-center gap-8 md:gap-12 ${index % 2 !== 0 ? "md:flex-row-reverse" : ""}`}>
+            <div class="w-full md:w-5/12 flex justify-center">
+              <div class="w-32 h-32 md:w-48 md:h-48 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 shadow-inner">
+                <Icon name={`lucide:${item.icono}`} class="w-16 h-16 md:w-24 md:h-24 opacity-80" />
+              </div>
+            </div>
+            <div class={`w-full md:w-7/12 ${index % 2 !== 0 ? "md:text-right" : ""}`}>
+              <h3 class="text-2xl font-bold text-gray-900 mb-3">{item.titulo}</h3>
+              <p class="text-lg text-gray-600 leading-relaxed">{item.descripcion}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    )}
+
+  </div>
+</section>

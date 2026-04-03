@@ -1,0 +1,50 @@
+---
+interface Props {
+  titulo: string;
+  subtitulo?: string;
+  cta: { texto: string; enlace: string };
+  fondo?: "primario" | "gradiente" | "oscuro";
+}
+
+const { 
+  titulo, 
+  subtitulo, 
+  cta, 
+  fondo = "primario" 
+} = Astro.props;
+
+const bgClasses = {
+  primario: "bg-blue-600",
+  gradiente: "bg-gradient-to-r from-blue-600 to-indigo-700",
+  oscuro: "bg-gray-900",
+};
+
+const textClass = fondo === "oscuro" ? "text-gray-300" : "text-blue-100";
+---
+
+<section class={`py-24 md:py-32 ${bgClasses[fondo]} text-white`}>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto text-center space-y-8">
+      
+      <h2 class="text-3xl md:text-5xl font-bold leading-tight">
+        {titulo}
+      </h2>
+      
+      {subtitulo && (
+        <p class={`text-lg md:text-xl leading-relaxed ${textClass}`}>
+          {subtitulo}
+        </p>
+      )}
+      
+      <div class="pt-4">
+        <a 
+          href={cta.enlace}
+          class="inline-block bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-50 transition-colors shadow-lg hover:shadow-xl focus:ring-4 focus:ring-white/20"
+        >
+          {cta.texto}
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</section>
